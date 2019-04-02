@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Patch>
+
+	<!--Basic gun-->
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "Gun_Revolver"]/weaponTags</xpath>
+		<value>
+			<li>RMC_WeaponTag_Simple_Gun</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "Gun_Autopistol"]/weaponTags</xpath>
+		<value>
+			<li>RMC_WeaponTag_Simple_Gun</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ThingDef[defName = "Gun_BoltActionRifle"]/defName</xpath>
+		<value>
+			<weaponTags>
+				<li>RMC_WeaponTag_Simple_Gun</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ThingDef[defName = "Gun_PumpShotgun"]/defName</xpath>
+		<value>
+			<weaponTags>
+				<li>RMC_WeaponTag_Simple_Gun</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ThingDef[defName = "Gun_MachinePistol"]/defName</xpath>
+		<value>
+			<weaponTags>
+				<li>RMC_WeaponTag_Simple_Gun</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	
+	<!--Advanced gun-->
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ThingDef[defName = "Gun_ChainShotgun"]/defName</xpath>
+		<value>
+			<weaponTags>
+				<li>RMC_WeaponTag_Advanced_Gun</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationInsert">
+		<xpath>/Defs/ThingDef[defName = "Gun_HeavySMG"]/defName</xpath>
+		<value>
+			<weaponTags>
+				<li>RMC_WeaponTag_Advanced_Gun</li>
+			</weaponTags>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "Gun_LMG"]/weaponTags</xpath>
+		<value>
+			<li>RMC_WeaponTag_Advanced_Gun</li>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "Gun_AssaultRifle"]/weaponTags</xpath>
+		<value>
+			<li>RMC_WeaponTag_Advanced_Gun</li>
+		</value>
+	</Operation>
+	
+</Patch>

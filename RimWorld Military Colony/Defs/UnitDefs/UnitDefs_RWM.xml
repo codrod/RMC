@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+
+	<RMC.UnitDef>
+		<defName>RMC_UnitDef_RWM_Small</defName>
+		<label>unit small</label>
+		<minWealth>0</minWealth>
+		<soldierList>
+			<li>
+				<key>RMC_RankDef_RWM_Scavenger</key>
+				<value>
+					<min>3</min>
+					<max>4</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Gunner</key>
+				<value>
+					<min>0</min>
+					<max>2</max>
+				</value>
+			</li>
+		</soldierList>
+	</RMC.UnitDef>
+
+	<RMC.UnitDef>
+		<defName>RMC_UnitDef_RWM_Medium</defName>
+		<label>unit medium</label>
+		<minWealth>12500</minWealth>
+		<soldierList>
+			<li>
+				<key>RMC_RankDef_RWM_Scavenger</key>
+				<value>
+					<min>3</min>
+					<max>4</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Gunner</key>
+				<value>
+					<min>4</min>
+					<max>5</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Slasher</key>
+				<value>
+					<min>1</min>
+					<max>3</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Sniper</key>
+				<value>
+					<min>2</min>
+					<max>3</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Elite</key>
+				<value>
+					<min>1</min>
+					<max>1</max>
+				</value>
+			</li>
+		</soldierList>
+	</RMC.UnitDef>
+	
+	<RMC.UnitDef>
+		<defName>RMC_UnitDef_RWM_Large</defName>
+		<label>unit large</label>
+		<minWealth>0</minWealth>
+		<soldierList>
+			<li>
+				<key>RMC_RankDef_RWM_Scavenger</key>
+				<value>
+					<min>4</min>
+					<max>5</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Gunner</key>
+				<value>
+					<min>5</min>
+					<max>6</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Slasher</key>
+				<value>
+					<min>2</min>
+					<max>4</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Grenadier_Destructive</key>
+				<value>
+					<min>1</min>
+					<max>2</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Sniper</key>
+				<value>
+					<min>3</min>
+					<max>4</max>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_RWM_Elite</key>
+				<value>
+					<min>1</min>
+					<max>2</max>
+				</value>
+			</li>
+		</soldierList>
+	</RMC.UnitDef>
+	
+</Defs>

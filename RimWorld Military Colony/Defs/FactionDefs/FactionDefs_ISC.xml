@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionDef Abstract="True" Name="RMC_FactionDef_ISC_Colony_Base">
+		<homeIconPath>World/WorldObjects/DefaultSettlement</homeIconPath>
+		<colorSpectrum>
+			<li>(0, 0.737, 0.847)</li>
+		</colorSpectrum>
+	</FactionDef>
+  
+	<FactionDef ParentName="RMC_FactionDef_ISC_Colony_Base">
+		<defName>RMC_FactionDef_ISC_Colony</defName>
+		<label>imperial spacemarine corps</label>
+		<description>A colony of recently-arrived spacemarines.</description>
+		<isPlayer>true</isPlayer>
+		<basicMemberKind>RMC_PawnKindDef_ISC_Colonist</basicMemberKind>
+		<pawnSingular>New spacemarine</pawnSingular>
+		<pawnsPlural>New spacemarines</pawnsPlural>
+		<techLevel>Industrial</techLevel>
+		<backstoryCategories>
+			<li>Civil</li>
+		</backstoryCategories>
+		<expandingIconTexture>World/WorldObjects/Expanding/PirateOutpost</expandingIconTexture>
+		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
+		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
+		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+		<geneticVariance>1</geneticVariance>
+		<startingResearchTags>
+			<li>ClassicStart</li>
+		</startingResearchTags>
+		<hairTags>
+			<li>Urban</li>
+		</hairTags>
+		<apparelStuffFilter>
+			<thingDefs>
+				<li>Synthread</li>
+			</thingDefs>
+		</apparelStuffFilter>
+	</FactionDef>
+
+</Defs>

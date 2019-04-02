@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionDef Abstract="True" Name="RMC_FactionDef_RWM_Colony_Base">
+		<homeIconPath>World/WorldObjects/DefaultSettlement</homeIconPath>
+		<colorSpectrum>
+			<li>(0, 0.737, 0.847)</li>
+		</colorSpectrum>
+	</FactionDef>
+  
+	<FactionDef ParentName="RMC_FactionDef_RWM_Colony_Base">
+		<defName>RMC_FactionDef_RWM_Colony</defName>
+		<label>New mercenaries</label>
+		<description>A colony of recently-arrived mercenaries.</description>
+		<isPlayer>true</isPlayer>
+		<basicMemberKind>RMC_PawnKindDef_RWM_Scavenger</basicMemberKind>
+		<pawnSingular>New mercenary</pawnSingular>
+		<pawnsPlural>New mercenaries</pawnsPlural>
+		<techLevel>Industrial</techLevel>
+		<backstoryCategories>
+			<li>Raider</li>
+		</backstoryCategories>
+		<expandingIconTexture>World/WorldObjects/Expanding/PirateOutpost</expandingIconTexture>
+		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
+		<factionNameMaker>NamerFactionPirate</factionNameMaker>
+		<settlementNameMaker>NamerSettlementPirate</settlementNameMaker>
+		<geneticVariance>1</geneticVariance>
+		<startingResearchTags>
+			<li>ClassicStart</li>
+		</startingResearchTags>
+		<hairTags>
+			<li>Urban</li>
+			<li>Punk</li>
+		</hairTags>
+	</FactionDef>
+
+</Defs>
