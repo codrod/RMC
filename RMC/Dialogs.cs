@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace RMC
 {
-    public class Dialog_Trade : Window
+    public class Dialog_Recruit : Window
     {
         protected Pawn negotiator;
         protected static readonly Vector2 AcceptButtonSize = new Vector2(160f, 40f);
@@ -17,6 +17,8 @@ namespace RMC
         private Vector2 scrollPosition;
         ArmyDef army;
         UnitDef reinforcements = new UnitDef();
+
+        static Texture2D TradeArrow = ContentFinder<Texture2D>.Get("UI/Widgets/TradeArrow", true);
 
         public override Vector2 InitialSize
         {
@@ -26,7 +28,7 @@ namespace RMC
             }
         }
 
-        public Dialog_Trade(Pawn negotiator, bool radioMode)
+        public Dialog_Recruit(Pawn negotiator, bool radioMode)
         {
             this.negotiator = negotiator;
             this.army = ArmyDef.GetFactionArmy(negotiator.Faction);
@@ -63,7 +65,7 @@ namespace RMC
             Rect rect6 = new Rect(0f, 58f, 116f, 30f);
             Widgets.Label(rect6, negotiator.Map.resourceCounter.Silver.ToString());
 
-            Rect rect62 = new Rect(inRect.width - 116f, 58f, 100f, 30f);
+            Rect rect62 = new Rect(inRect.width - 143f, 58f, 100f, 30f);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
             Widgets.Label(rect62, "-" + reinforcements.GetUnitCost().ToString());
@@ -79,7 +81,7 @@ namespace RMC
 
             this.FillMainRect(mainRect);
 
-            Rect rect7 = new Rect(inRect.width / 2f - Dialog_Trade.AcceptButtonSize.x / 2f, inRect.height - 55f, Dialog_Trade.AcceptButtonSize.x, Dialog_Trade.AcceptButtonSize.y);
+            Rect rect7 = new Rect(inRect.width / 2f - Dialog_Recruit.AcceptButtonSize.x / 2f, inRect.height - 55f, Dialog_Recruit.AcceptButtonSize.x, Dialog_Recruit.AcceptButtonSize.y);
             if (Widgets.ButtonText(rect7, "AcceptButton".Translate(), true, false, true))
             {
                 Action action = delegate
@@ -111,7 +113,7 @@ namespace RMC
                 Event.current.Use();
             }
 
-            Rect rect8 = new Rect(rect7.x - 10f - Dialog_Trade.OtherBottomButtonSize.x, rect7.y, Dialog_Trade.OtherBottomButtonSize.x, Dialog_Trade.OtherBottomButtonSize.y);
+            Rect rect8 = new Rect(rect7.x - 10f - Dialog_Recruit.OtherBottomButtonSize.x, rect7.y, Dialog_Recruit.OtherBottomButtonSize.x, Dialog_Recruit.OtherBottomButtonSize.y);
             if (Widgets.ButtonText(rect8, "ResetButton".Translate(), true, false, true))
             {
                 SoundDefOf.Tick_Low.PlayOneShotOnCamera(null);
@@ -122,7 +124,7 @@ namespace RMC
                     reinforcements.Add(army.rankList[i]);
             }
 
-            Rect rect9 = new Rect(rect7.xMax + 10f, rect7.y, Dialog_Trade.OtherBottomButtonSize.x, Dialog_Trade.OtherBottomButtonSize.y);
+            Rect rect9 = new Rect(rect7.xMax + 10f, rect7.y, Dialog_Recruit.OtherBottomButtonSize.x, Dialog_Recruit.OtherBottomButtonSize.y);
             if (Widgets.ButtonText(rect9, "CancelButton".Translate(), true, false, true))
             {
                 this.Close(true);
@@ -198,158 +200,4 @@ namespace RMC
             GUI.EndGroup();
         }
     }
-
-    /*
-public static class ArmyDialogMaker
-{
-//public static UnitDef reinforcements = new UnitDef();
-//public static int arrivalTick = 0;
-
-/*
-public static DiaNode MakeDialog(Pawn negotiator)
-{
-    DiaNode rootNode = new DiaNode("Hello");
-
-    rootNode.options.Add(MakeReinforceDialog(negotiator, rootNode));
-
-    DiaOption disconnectOption = new DiaOption("(" + "Disconnect".Translate() + ")");
-    disconnectOption.resolveTree = true;
-    rootNode.options.Add(disconnectOption);
-
-    return rootNode;
-}
-
-public static DiaOption MakeReinforceDialog(Pawn negotiator, DiaNode rootNode)
-{
-    ArmyDef army = ArmyDef.GetFactionArmy(negotiator.Faction);
-    //UnitDef reinforcements = army.GetReinforcements(negotiator.Map);
-
-    DiaOption reinforceOption = new DiaOption("Request reinforcements");
-
-    if (Find.TickManager.TicksGame > arrivalTick)
-    {
-        DiaNode unitDialog = new DiaNode("Choose a unit:");
-        reinforceOption.link = unitDialog;
-
-        foreach (UnitDef unit in army.unitList)
-        {
-            DiaOption option = new DiaOption(unit.label);
-
-            if (unit.SubtractUnit(army.GetAllSoldiersInArmy()).GetUnitSize() > 0)
-            {
-                option.action = delegate
-                {
-                    reinforcements = unit.SubtractUnit(army.GetAllSoldiersInArmy());
-                    option.link = MakeConfirmReinforceDialog(negotiator, rootNode, army);
-                };
-            }
-            else
-                option.Disable("Already reinforced");
-
-            unitDialog.options.Add(option);
-        }
-
-        unitDialog.options.Add(new DiaOption("Cancel")
-        {
-            link = rootNode
-        });
-    }
-    else
-        reinforceOption.Disable("Reinforcements are coming");
-
-    return reinforceOption;
-}
-
-public static DiaNode MakeConfirmReinforceDialog(Pawn negotiator, DiaNode rootNode, ArmyDef army)
-{
-    DiaNode confirmDialog = new DiaNode("The reinforcements will cost " + reinforcements.GetUnitCost() + " silver and take " + (float)reinforcements.GetUnitSpawnTime() / GenDate.TicksPerDay + " days to arrive.");
-
-    DiaOption confirmOption = new DiaOption("Confirm".Translate());
-    confirmDialog.options.Add(confirmOption);
-    if (negotiator.Map.resourceCounter.Silver >= reinforcements.GetUnitCost())
-    {
-        confirmOption.action = delegate
-        {
-            rootNode.options[0].Disable("Reinforcements are coming");
-
-            MapUtilities.DestroyThingsInMap(negotiator.Map, ThingDef.Named("Silver"), reinforcements.GetUnitCost());
-
-            arrivalTick = Find.TickManager.TicksGame + reinforcements.GetUnitSpawnTime();
-
-            IncidentParms incidentParms = new IncidentParms();
-            incidentParms.target = negotiator.Map;
-            incidentParms.faction = negotiator.Faction;
-            incidentParms.forced = true;
-            Find.Storyteller.incidentQueue.Add(army.reinforceIncident, arrivalTick, incidentParms, 240000);
-        };
-    }
-    else
-        confirmOption.Disable("Not enough silver");
-
-    confirmDialog.options.Add(new DiaOption("Cancel")
-    {
-        link = rootNode
-    });
-
-    DiaNode sentDialog = new DiaNode("The reinforcements will arrive in " + (float)reinforcements.GetUnitSpawnTime() / GenDate.TicksPerDay + " days.");
-    confirmOption.link = sentDialog;
-    sentDialog.options.Add(new DiaOption("OK".Translate())
-    {
-        link = rootNode
-    });
-
-    return confirmDialog;
-}
-
-}
-*/
-
-    /*
-    public class Dialog_Reinforce : Dialog_NodeTree
-    {
-        protected Pawn negotiator;
-        private const float TitleHeight = 70f;
-        private const float InfoHeight = 60f;
-
-        public override Vector2 InitialSize
-        {
-            get
-            {
-                return new Vector2(720f, 600f);
-            }
-        }
-
-        public Dialog_Reinforce(Pawn negotiator,  bool radioMode) : base(ArmyDialogMaker.MakeDialog(negotiator), radioMode, false, null)
-        {
-            this.negotiator = negotiator;
-        }
-
-        //FactionDialogMaker
-        public override void DoWindowContents(Rect inRect)
-        {
-            GUI.BeginGroup(inRect);
-            Rect rect = new Rect(0f, 0f, inRect.width / 2f, 70f);
-            Rect rect2 = new Rect(0f, rect.yMax, rect.width, 60f);
-            Rect rect3 = new Rect(inRect.width / 2f, 0f, inRect.width / 2f, 70f);
-            Rect rect4 = new Rect(inRect.width / 2f, rect.yMax, rect.width, 60f);
-            Text.Font = GameFont.Medium;
-            Widgets.Label(rect, this.negotiator.LabelCap);
-            Text.Anchor = TextAnchor.UpperRight;
-            Widgets.Label(rect3, negotiator.Faction.Name);
-            Text.Anchor = TextAnchor.UpperLeft;
-            Text.Font = GameFont.Small;
-            GUI.color = new Color(1f, 1f, 1f, 0.7f);
-            Widgets.Label(rect2, "SocialSkillIs".Translate(negotiator.skills.GetSkill(SkillDefOf.Social).Level));
-            Text.Anchor = TextAnchor.UpperRight;
-            Widgets.Label(rect4, ((Settlement)negotiator.Map.Parent).Name);
-
-            Text.Anchor = TextAnchor.UpperLeft;
-            GUI.color = Color.white;
-            GUI.EndGroup();
-            float num = 147f;
-            Rect rect6 = new Rect(0f, num, inRect.width, inRect.height - num);
-            base.DrawNode(rect6);
-        }
-    }
-    */
 }

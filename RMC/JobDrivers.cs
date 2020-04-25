@@ -21,7 +21,7 @@ namespace RMC
 
             openMenuToil.initAction = delegate
             {
-                Dialog_Trade dialog = new Dialog_Trade(this.pawn, true);
+                Dialog_Recruit dialog = new Dialog_Recruit(this.pawn, true);
                 dialog.soundAmbient = SoundDefOf.RadioComms_Ambience;
                 Find.WindowStack.Add(dialog);
             };
