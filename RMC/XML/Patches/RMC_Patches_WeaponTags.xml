@@ -47,21 +47,17 @@
 	
 	<!--Advanced gun-->
 	
-	<Operation Class="PatchOperationInsert">
-		<xpath>/Defs/ThingDef[defName = "Gun_ChainShotgun"]/defName</xpath>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "Gun_ChainShotgun"]/weaponTags</xpath>
 		<value>
-			<weaponTags>
-				<li>RMC_WeaponTag_Advanced_Gun</li>
-			</weaponTags>
+			<li>RMC_WeaponTag_Advanced_Gun</li>
 		</value>
 	</Operation>
 	
-	<Operation Class="PatchOperationInsert">
-		<xpath>/Defs/ThingDef[defName = "Gun_HeavySMG"]/defName</xpath>
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/ThingDef[defName = "Gun_HeavySMG"]/weaponTags</xpath>
 		<value>
-			<weaponTags>
-				<li>RMC_WeaponTag_Advanced_Gun</li>
-			</weaponTags>
+			<li>RMC_WeaponTag_Advanced_Gun</li>
 		</value>
 	</Operation>
 	

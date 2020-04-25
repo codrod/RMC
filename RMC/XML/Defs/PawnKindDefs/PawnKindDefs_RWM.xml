@@ -160,8 +160,8 @@
 		</apparelMoney>
 		<apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
 		<weaponMoney>
-			<min>400</min>
-			<max>530</max>
+			<min>425</min>
+			<max>555</max>
 		</weaponMoney>
 		<weaponTags>
 			<li>RMC_WeaponTag_Advanced_Gun</li>

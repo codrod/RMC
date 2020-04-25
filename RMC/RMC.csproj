@@ -98,7 +98,9 @@
     <Content Include="XML\Defs\IncidentDefs\IncidentDefs_RWM.xml" />
     <Content Include="XML\Defs\JobDefs\JobDefs.xml" />
     <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_ISC.xml" />
-    <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_RWM.xml" />
+    <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_RWM.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="XML\Defs\RankDefs\RankDefs_ISC.xml" />
     <Content Include="XML\Defs\RankDefs\RankDefs_RWM.xml" />
     <Content Include="XML\Defs\ThingDefs\ThingDef_Buildings.xml" />
@@ -107,7 +109,9 @@
     <Content Include="XML\Defs\UnitDefs\UnitDefs_RWM.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="XML\Patches\RMC_Patches_WeaponTags.xml.ignore" />
+    <Content Include="XML\Patches\RMC_Patches_WeaponTags.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
