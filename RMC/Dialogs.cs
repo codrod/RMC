@@ -18,8 +18,6 @@ namespace RMC
         ArmyDef army;
         UnitDef reinforcements = new UnitDef();
 
-        static Texture2D TradeArrow = ContentFinder<Texture2D>.Get("UI/Widgets/TradeArrow", true);
-
         public override Vector2 InitialSize
         {
             get

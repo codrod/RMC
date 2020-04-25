@@ -9,40 +9,40 @@
   
 	<FactionDef ParentName="RMC_FactionDef_RWM_Colony_Base">
 		<defName>RMC_FactionDef_RWM_Colony</defName>
-		<label>New mercenaries</label>
-		<description>A colony of recently-arrived mercenaries.</description>
-		<isPlayer>true</isPlayer>
-		<basicMemberKind>RMC_PawnKindDef_RWM_Scavenger</basicMemberKind>
-		<pawnSingular>mercenary</pawnSingular>
-		<pawnsPlural>mercenaries</pawnsPlural>
-    <categoryTag>Mercenary</categoryTag>
-		<techLevel>Industrial</techLevel>
+		<label>Mercenaries</label>
+    <description>A colony of recently-arrived mercenaires.</description>
+    <isPlayer>true</isPlayer>
+    <basicMemberKind>RMC_PawnKindDef_RWM_Scavenger</basicMemberKind>
+    <pawnSingular>mercenary</pawnSingular>
+    <pawnsPlural>mercenaires</pawnsPlural>
+    <factionIconPath>World/WorldObjects/Expanding/PirateOutpost</factionIconPath>
+    <colorSpectrum>
+      <li>(0.45, 0.05, 0.05)</li>
+      <li>(0.80, 0.25, 0.05)</li>
+    </colorSpectrum>
+    <permanentEnemy>true</permanentEnemy>
+    <factionNameMaker>NamerFactionPirate</factionNameMaker>
+    <settlementNameMaker>NamerSettlementPirate</settlementNameMaker>
+    <techLevel>Industrial</techLevel>
+    <startingResearchTags>
+      <li>ClassicStart</li>
+    </startingResearchTags>
+    <startingTechprintsResearchTags>
+      <li>ClassicStart</li>
+      <li>ClassicStartTechprints</li>
+    </startingTechprintsResearchTags>
     <backstoryFilters>
       <li>
         <categories>
-          <li>Outlander</li>
+          <li>Pirate</li>
         </categories>
-        <commonality>0.95</commonality>
-      </li>
-      <li>
-        <categories>
-          <li>Offworld</li>
-        </categories>
-        <commonality>0.05</commonality>
       </li>
     </backstoryFilters>
-    <geneticVariance>1</geneticVariance>
-		<factionIconPath>World/WorldObjects/Expanding/PirateOutpost</factionIconPath>
-		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
-		<factionNameMaker>NamerFactionPirate</factionNameMaker>
-		<settlementNameMaker>NamerSettlementPirate</settlementNameMaker>
-		<startingResearchTags>
-			<li>ClassicStart</li>
-		</startingResearchTags>
-		<hairTags>
-			<li>Urban</li>
-			<li>Punk</li>
-		</hairTags>
+    <geneticVariance>0.8</geneticVariance>
+    <hairTags>
+      <li>Punk</li>
+    </hairTags>
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
 	</FactionDef>
-
+  
 </Defs>

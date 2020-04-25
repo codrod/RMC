@@ -8,9 +8,6 @@
 		<combatPower>100</combatPower>
 		<forceNormalGearQuality>true</forceNormalGearQuality>
 		<defaultFactionType>RMC_FactionDef_ISC_Colony</defaultFactionType>
-		<backstoryCategories>
-			<li>Civil</li>
-		</backstoryCategories>
 		<minGenerationAge>18</minGenerationAge>
 		<maxGenerationAge>55</maxGenerationAge>
 	</PawnKindDef>

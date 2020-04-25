@@ -4,9 +4,6 @@
 	<PawnKindDef Name="RMC_PawnKindDef_RWM_Base" Abstract="True">
 		<race>Human</race>
 		<defaultFactionType>RMC_FactionDef_RWM_Colony</defaultFactionType>
-		<backstoryCategories>
-			<li>Raider</li>
-		</backstoryCategories>
 		<chemicalAddictionChance>0.1</chemicalAddictionChance>
 		<invNutrition>2.55</invNutrition>
 		<backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>

@@ -30,7 +30,7 @@
 		<defName>RMC_BackstoryDef_ISC_Spacemarine</defName>
 		<label>spacemarine backstory</label>
 		<identifier>RMC_BackstoryDef_ISC_Spacemarine</identifier>
-		<baseDesc>Since joining the orbital-deployment shock troop corps [PAWN_nameDef] has fought in countless battles, with distinction, and earned [PAWN_pronoun] place in the imperial spacemarine corps.\n\nEneimes of the empire fear the spacemarines more than any other imperial force, for good reason.</baseDesc>
+		<baseDesc>Since joining the orbital-deployment shock troop corps [PAWN_nameDef] has fought in countless battles with distinction and honor.\n\nEnemies of the empire fear the spacemarines more than any other imperial force, for good reason.</baseDesc>
 		<title>Spacemarine</title>
 		<titleShort>Marine</titleShort>
 		<bodyTypeDef>Hulk</bodyTypeDef>
