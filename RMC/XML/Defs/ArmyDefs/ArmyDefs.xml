@@ -28,6 +28,7 @@
 		<defName>RMC_ArmyDef_RWM</defName>
 		<label>Rimworld mercenary corps</label>
 		<factionDef>RMC_FactionDef_RWM_Colony</factionDef>
+    <startingUnit>RMC_UnitDef_RWM_Starting_Unit</startingUnit>
 		<useDropPods>false</useDropPods>
 		<rankList>
 			<li>RMC_RankDef_RWM_Scavenger</li>

@@ -17,8 +17,8 @@
 	</meta>
 	<scenario>
 		<name>Rimworld Mercenaries</name>
-		<summary>Rimworld Mercenaries</summary>
-		<description>Rimworld Mercenaries</description>
+		<summary>Play as ruthless rimworld mercenaries and fight for survival, and profit, on this savage planet.</summary>
+		<description>Mercenaries are common on the lawless rimworlds and are significantly more ruthless and savage than those found elsewhere. They will fight against and for anyone who has the money to hire them. But they are usually hired by outlanders as protection against pirates. Their skills and equipment varies drastically but most are capable with a gun and modestly well equipped.</description>
 		<playerFaction>
 			<def>PlayerFaction</def>
 			<factionDef>RMC_FactionDef_RWM_Colony</factionDef>
@@ -69,7 +69,10 @@
 			</li>
 			<li Class="ScenPart_GameStartDialog">
 				<def>GameStartDialog</def>
-				<text />
+				<text>After an "unfortunate disagreement" with your former captain you decided to start your own mercenary company. You managed to gather a few like minded mercenaries and "commander" a few supplies before leaving.
+
+Now, after days of walking, you have finally found a place to set up your base.
+</text>
 				<textKey>GameStartDialog</textKey>
 				<closeSound>GameStartSting</closeSound>
 			</li>

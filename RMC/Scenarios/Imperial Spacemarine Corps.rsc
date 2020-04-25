@@ -17,8 +17,10 @@
 	</meta>
 	<scenario>
 		<name>Imperial Spacemarine Corps</name>
-		<summary>Imperial spacemarine corps</summary>
-		<description>Imperial spacemarine corps</description>
+		<summary>Play as the Imperial Spacemarines on their endless quest to bring order to the rimwrolds.</summary>
+		<description>
+      The emperor of man in a fit of deranged pride dispatched thousands of imperial fleets to the edges of the galaxy, in order to "bring law and order to the rimworlds." These fleets still scour the farthest reaches of space even though their emperor and his empire is long dead. They call themselves Imperial Spacemarines, the emperor's chosen. But they are colloquially referred to as "the dead legions" by the inhabitants of of the rimworlds.
+    </description>
 		<playerFaction>
 			<def>PlayerFaction</def>
 			<factionDef>RMC_FactionDef_ISC_Colony</factionDef>
@@ -70,7 +72,16 @@
 			</li>
 			<li Class="ScenPart_GameStartDialog">
 				<def>GameStartDialog</def>
-				<text />
+				<text>As you fall from the imperial starship you can still hear the sound of the Lord-Admiral's orders echoing in your head. His voice cuts through the ear splitting sound of your drop-pod entering the atmosphere as if he was in the drop-pod with you.
+
+"It is your duty to bring the emperor's love to this world filled with pirates and savages.
+
+Remember, all who do not bend to the authority of the empire must be destroyed.
+
+You will cleanse this world like the countless worlds that came before it or you will die trying."
+
+When your drop-pod hits the ground. It finally sinks in, there is no going back, you will die on this planet...
+</text>
 				<textKey>GameStartDialog</textKey>
 				<closeSound>GameStartSting</closeSound>
 			</li>

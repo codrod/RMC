@@ -6,6 +6,12 @@
 		<defName>RMC_UnitDef_ISC_Starting_Unit</defName>
 		<label>Starting Unit</label>
 		<soldierList>
+      <li>
+        <key>RMC_RankDef_ISC_Captain</key>
+        <value>
+          <count>1</count>
+        </value>
+      </li>
 			<li>
 				<key>RMC_RankDef_ISC_Sergeant</key>
 				<value>
