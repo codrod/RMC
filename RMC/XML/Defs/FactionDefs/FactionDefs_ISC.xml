@@ -13,17 +13,23 @@
 		<description>A colony of recently-arrived spacemarines.</description>
 		<isPlayer>true</isPlayer>
 		<basicMemberKind>RMC_PawnKindDef_ISC_Colonist</basicMemberKind>
-		<pawnSingular>New spacemarine</pawnSingular>
-		<pawnsPlural>New spacemarines</pawnsPlural>
-		<techLevel>Industrial</techLevel>
-		<backstoryCategories>
-			<li>Civil</li>
-		</backstoryCategories>
+		<pawnSingular>spacemarine</pawnSingular>
+		<pawnsPlural>spacemarines</pawnsPlural>
+    <categoryTag>Spacemarine</categoryTag>
+		<techLevel>Spacer</techLevel>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Offworld</li>
+        </categories>
+        <commonality>1</commonality>
+      </li>
+    </backstoryFilters>
+    <geneticVariance>0.5</geneticVariance>
 		<factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
 		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
 		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
 		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
-		<geneticVariance>1</geneticVariance>
 		<startingResearchTags>
 			<li>ClassicStart</li>
 		</startingResearchTags>

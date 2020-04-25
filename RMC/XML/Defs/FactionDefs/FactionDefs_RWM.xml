@@ -13,17 +13,29 @@
 		<description>A colony of recently-arrived mercenaries.</description>
 		<isPlayer>true</isPlayer>
 		<basicMemberKind>RMC_PawnKindDef_RWM_Scavenger</basicMemberKind>
-		<pawnSingular>New mercenary</pawnSingular>
-		<pawnsPlural>New mercenaries</pawnsPlural>
+		<pawnSingular>mercenary</pawnSingular>
+		<pawnsPlural>mercenaries</pawnsPlural>
+    <categoryTag>Mercenary</categoryTag>
 		<techLevel>Industrial</techLevel>
-		<backstoryCategories>
-			<li>Raider</li>
-		</backstoryCategories>
-		<factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
+    <backstoryFilters>
+      <li>
+        <categories>
+          <li>Outlander</li>
+        </categories>
+        <commonality>0.95</commonality>
+      </li>
+      <li>
+        <categories>
+          <li>Offworld</li>
+        </categories>
+        <commonality>0.05</commonality>
+      </li>
+    </backstoryFilters>
+    <geneticVariance>1</geneticVariance>
+		<factionIconPath>World/WorldObjects/Expanding/PirateOutpost</factionIconPath>
 		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
 		<factionNameMaker>NamerFactionPirate</factionNameMaker>
 		<settlementNameMaker>NamerSettlementPirate</settlementNameMaker>
-		<geneticVariance>1</geneticVariance>
 		<startingResearchTags>
 			<li>ClassicStart</li>
 		</startingResearchTags>
