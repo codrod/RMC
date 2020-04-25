@@ -114,7 +114,6 @@ namespace RMC
             return soldierList.GetEnumerator();
         }
 
-        /*
         public override string ToString()
         {
             string str = "";
@@ -126,7 +125,6 @@ namespace RMC
                 
             return str;
         }
-        */
     }
 
     public class RankCount

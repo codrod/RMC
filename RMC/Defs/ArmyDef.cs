@@ -41,19 +41,6 @@ namespace RMC
             return army;
         }
 
-        /*
-        public UnitDef GetReinforcements(Map map)
-        {
-            UnitDef maxUnit = null, survivors = null, reinforcements = null;
-
-            survivors = GetAllSoldiersInArmy();
-            maxUnit = GetMaxUnitForMap(map);
-            reinforcements = maxUnit.SubtractUnit(survivors);
-
-            return reinforcements;
-        }
-        */
-
         public RankDef GetPawnRank(Pawn pawn)
         {
             foreach (RankDef rank in rankList)
@@ -82,23 +69,6 @@ namespace RMC
         {
             return GetUnitFromList(map.mapPawns.FreeColonistsAndPrisoners);
         }
-
-        /*
-        public UnitDef GetMaxUnitForMap(Map map)
-        {
-            UnitDef maxUnit = null;
-
-            foreach (UnitDef unitDef in unitList)
-            {
-                UnitDef newUnit = unitDef.SetRandomUnitSize();
-
-                if (map.wealthWatcher.WealthBuildings > unitDef.minWealth && (maxUnit == null || maxUnit.GetUnitSize() < newUnit.GetUnitSize()))
-                    maxUnit = newUnit;
-            }
-
-            return maxUnit;
-        }
-        */
 
         public List<Pawn> GenerateUnit(UnitDef unit)
         {

@@ -17,11 +17,6 @@
 			<li>RMC_RankDef_ISC_Lieutenant</li>
 			<li>RMC_RankDef_ISC_Captain</li>
 		</rankList>
-		<unitList>
-			<li>RMC_UnitDef_ISC_Squad</li>
-			<li>RMC_UnitDef_ISC_Platoon</li>
-			<li>RMC_UnitDef_ISC_Company</li>
-		</unitList>
 	</RMC.ArmyDef>
 	
 	<RMC.ArmyDef>
@@ -29,6 +24,7 @@
 		<label>Rimworld mercenary corps</label>
 		<factionDef>RMC_FactionDef_RWM_Colony</factionDef>
 		<useDropPods>false</useDropPods>
+    <startingUnit>RMC_UnitDef_RWM_Starting_Unit</startingUnit>
 		<rankList>
 			<li>RMC_RankDef_RWM_Scavenger</li>
 			<li>RMC_RankDef_RWM_Gunner</li>
@@ -38,11 +34,6 @@
 			<li>RMC_RankDef_RWM_Sniper</li>
 			<li>RMC_RankDef_RWM_Elite</li>
 		</rankList>
-		<unitList>
-			<li>RMC_UnitDef_RWM_Small</li>
-			<li>RMC_UnitDef_RWM_Medium</li>
-			<li>RMC_UnitDef_RWM_Large</li>
-		</unitList>
 	</RMC.ArmyDef>
 	
 </Defs>
