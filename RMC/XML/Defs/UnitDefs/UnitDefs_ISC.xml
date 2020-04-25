@@ -3,6 +3,31 @@
 <Defs>
 
 	<RMC.UnitDef>
+		<defName>RMC_UnitDef_ISC_Starting_Unit</defName>
+		<label>Starting Unit</label>
+		<soldierList>
+			<li>
+				<key>RMC_RankDef_ISC_Sergeant</key>
+				<value>
+					<count>1</count>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_ISC_Corporal</key>
+				<value>
+					<count>1</count>
+				</value>
+			</li>
+			<li>
+				<key>RMC_RankDef_ISC_Private</key>
+				<value>
+					<count>2</count>
+				</value>
+			</li>
+		</soldierList>
+	</RMC.UnitDef>
+
+	<RMC.UnitDef>
 		<defName>RMC_UnitDef_ISC_Squad</defName>
 		<label>Squad</label>
 		<soldierList>

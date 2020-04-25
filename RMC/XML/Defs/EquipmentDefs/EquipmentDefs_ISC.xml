@@ -53,41 +53,10 @@
 				<stuff>Synthread</stuff>
 			</li>
 			<li>
-				<thing>Apparel_Jacket</thing>
-				<stuff>Synthread</stuff>
+				<thing>VAE_Apparel_LightMarineArmor</thing>
 			</li>
 			<li>
-				<thing>Apparel_FlakVest</thing>
-				<color>(0.5, 0.5, 0.5, 1)</color>
-			</li>
-			<li>
-				<thing>Apparel_SimpleHelmet</thing>
-				<stuff>Plasteel</stuff>
-			</li>
-		</equipmentList>
-	</RMC.EquipmentDef>
-	
-	<RMC.EquipmentDef>
-		<defName>RMC_EquipmentDef_ISC_MediumArmor</defName>
-		<label>medium armor</label>
-		<equipmentList>
-			<li>
-				<thing>Apparel_FlakPants</thing>
-			</li>
-			<li>
-				<thing>Apparel_BasicShirt</thing>
-				<stuff>Synthread</stuff>
-			</li>
-			<li>
-				<thing>Apparel_FlakJacket</thing>
-			</li>
-			<li>
-				<thing>Apparel_FlakVest</thing>
-				<color>(0.5, 0.5, 0.5, 1)</color>
-			</li>
-			<li>
-				<thing>Apparel_AdvancedHelmet</thing>
-				<stuff>Plasteel</stuff>
+				<thing>VAE_Headgear_LightMarineHelmet</thing>
 			</li>
 		</equipmentList>
 	</RMC.EquipmentDef>
@@ -105,12 +74,10 @@
 				<stuff>Synthread</stuff>
 			</li>
 			<li>
-				<thing>Apparel_PowerArmor</thing>
-				<color>(0.4, 0.4, 0.4, 1)</color>
+				<thing>VAE_Apparel_HeavyMarineArmor</thing>
 			</li>
 			<li>
-				<thing>Apparel_PowerArmorHelmet</thing>
-				<color>(0.4, 0.4, 0.4, 1)</color>
+				<thing>VAE_Headgear_HeavyMarineHelmet</thing>
 			</li>
 		</equipmentList>
 	</RMC.EquipmentDef>

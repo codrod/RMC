@@ -6,12 +6,8 @@
 		<defName>RMC_ArmyDef_ISC</defName>
 		<label>Imperial spacemarine corps</label>
 		<factionDef>RMC_FactionDef_ISC_Colony</factionDef>
-		<deployIncident>RMC_IncidentDef_ISC_Deploy</deployIncident>
-		<reinforceIncident>RMC_IncidentDef_ISC_Reinforce</reinforceIncident>
 		<useDropPods>true</useDropPods>
-		<!--<minDaysOfFood>30</minDaysOfFood>
-		<foodToGive>MealSurvivalPack</foodToGive>
-		<daysOfFoodToGive>15</daysOfFoodToGive>-->
+		<startingUnit>RMC_UnitDef_ISC_Starting_Unit</startingUnit>
 		<rankList>
 			<li>RMC_RankDef_ISC_Colonist</li>
 			<li>RMC_RankDef_ISC_Private</li>
@@ -32,8 +28,6 @@
 		<defName>RMC_ArmyDef_RWM</defName>
 		<label>Rimworld mercenary corps</label>
 		<factionDef>RMC_FactionDef_RWM_Colony</factionDef>
-		<deployIncident>RMC_IncidentDef_RWM_Deploy</deployIncident>
-		<reinforceIncident>RMC_IncidentDef_RWM_Reinforce</reinforceIncident>
 		<useDropPods>false</useDropPods>
 		<rankList>
 			<li>RMC_RankDef_RWM_Scavenger</li>

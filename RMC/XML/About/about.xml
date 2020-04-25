@@ -3,8 +3,10 @@
 <ModMetaData>
 	<name>Rimworld Military Colony</name>
 	<author>Cody M. Rodgers</author>
-	<targetVersion>1.0.0</targetVersion>
 	<description>
 		Rimworld Military Colony
 	</description>
+	<supportedVersions>
+		<li>1.1</li>
+	</supportedVersions>
 </ModMetaData>

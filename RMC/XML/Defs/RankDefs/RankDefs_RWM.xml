@@ -4,43 +4,43 @@
 
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Scavenger</defName>
-		<label>rank colonist</label>
+		<label>Scavenger</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Scavenger</pawnKindDef>
 	</RMC.RankDef>
 	
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Gunner</defName>
-		<label>rank mercenary</label>
+		<label>Mercenary</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Gunner</pawnKindDef>
 	</RMC.RankDef>
 	
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Grenadier_Destructive</defName>
-		<label>rank grenadier</label>
+		<label>Grenadier</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Grenadier_Destructive</pawnKindDef>
 	</RMC.RankDef>
 	
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Grenadier_EMP</defName>
-		<label>rank grenadier</label>
+		<label>Grenadier EMP</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Grenadier_EMP</pawnKindDef>
 	</RMC.RankDef>
 	
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Slasher</defName>
-		<label>rank slasher</label>
+		<label>Slasher</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Slasher</pawnKindDef>
 	</RMC.RankDef>
 	
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Sniper</defName>
-		<label>rank sniper</label>
+		<label>Sniper</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Sniper</pawnKindDef>
 	</RMC.RankDef>
 	
 	<RMC.RankDef>
 		<defName>RMC_RankDef_RWM_Elite</defName>
-		<label>rank elite mercenary</label>
+		<label>Elite Mercenary</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Elite</pawnKindDef>
 	</RMC.RankDef>
 	

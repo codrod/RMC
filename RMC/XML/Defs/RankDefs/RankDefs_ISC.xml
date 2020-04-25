@@ -4,9 +4,9 @@
 
 	<RMC.RankDef>
 		<defName>RMC_RankDef_ISC_Colonist</defName>
-		<label>rank colonist</label>
+		<label>Colonist</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Colonist</pawnKindDef>
-		<weapon>Gun_BoltActionRifle</weapon>
+		<weapon>VWE_Gun_ChargePistol</weapon>
 		<cost>500</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
@@ -19,36 +19,36 @@
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">
 		<defName>RMC_RankDef_ISC_Private</defName>
-		<label>rank private</label>
+		<label>Private</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Private</pawnKindDef>
 		<title>Pvt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_Low</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
-		<weapon>Gun_AssaultRifle</weapon>
+		<weapon>Gun_ChargeRifle</weapon>
 		<cost>1000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">
 		<defName>RMC_RankDef_ISC_Corporal</defName>
-		<label>rank corporal</label>
+		<label>Corporal</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Corporal</pawnKindDef>
 		<title>Cpl.</title>
 		<trainingDef>RMC_TrainingDef_ISC_Medium</trainingDef>
-		<equipmentDef>RMC_EquipmentDef_ISC_MediumArmor</equipmentDef>
-		<weapon>Gun_AssaultRifle</weapon>
+		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
+		<weapon>Gun_ChargeRifle</weapon>
 		<cost>1000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">
 		<defName>RMC_RankDef_ISC_Sergeant</defName>
-		<label>rank sergeant</label>
+		<label>Sergeant</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Sergeant</pawnKindDef>
 		<title>Sgt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_High</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
-		<weapon>Gun_ChargeRifle</weapon>
+		<weapon>VWE_Gun_ChargeMinigun</weapon>
 		<cost>1000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
@@ -61,37 +61,37 @@
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
 		<defName>RMC_RankDef_ISC_Tech</defName>
-		<label>rank tech officer</label>
+		<label>Technical Officer</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Tech</pawnKindDef>
 		<title>Dr.</title>
 		<adulthood>RMC_BackstoryDef_ISC_Tech</adulthood>
 		<trainingDef>RMC_TrainingDef_ISC_Tech</trainingDef>
-		<equipmentDef>RMC_EquipmentDef_ISC_MediumArmor</equipmentDef>
-		<weapon>Gun_SniperRifle</weapon>
+		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
+		<weapon>VWE_Gun_ChargeSniperRifle</weapon>
 		<cost>2000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
 		<defName>RMC_RankDef_ISC_Lieutenant</defName>
-		<label>rank lieutenant</label>
+		<label>Lieutenant</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Lieutenant</pawnKindDef>
 		<title>Lt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
-		<weapon>Gun_ChargeRifle</weapon>
+		<weapon>VWE_Gun_ChargeLMG</weapon>
 		<cost>2000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
 		<defName>RMC_RankDef_ISC_Captain</defName>
-		<label>rank captain</label>
+		<label>Captain</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Captain</pawnKindDef>
 		<title>Capt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
-		<weapon>Gun_ChargeRifle</weapon>
+		<weapon>VWE_Gun_ChargeLMG</weapon>
 		<cost>2000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>

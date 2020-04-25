@@ -2,7 +2,6 @@
 <Defs>
 
 	<FactionDef Abstract="True" Name="RMC_FactionDef_ISC_Colony_Base">
-		<homeIconPath>World/WorldObjects/DefaultSettlement</homeIconPath>
 		<colorSpectrum>
 			<li>(0, 0.737, 0.847)</li>
 		</colorSpectrum>
@@ -20,7 +19,7 @@
 		<backstoryCategories>
 			<li>Civil</li>
 		</backstoryCategories>
-		<expandingIconTexture>World/WorldObjects/Expanding/PirateOutpost</expandingIconTexture>
+		<factionIconPath>World/WorldObjects/Expanding/Town</factionIconPath>
 		<playerInitialSettlementNameMaker>NamerInitialSettlementColony</playerInitialSettlementNameMaker>
 		<factionNameMaker>NamerFactionOutlander</factionNameMaker>
 		<settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>

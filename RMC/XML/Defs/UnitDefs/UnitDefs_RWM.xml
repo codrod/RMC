@@ -4,8 +4,7 @@
 
 	<RMC.UnitDef>
 		<defName>RMC_UnitDef_RWM_Small</defName>
-		<label>unit small</label>
-		<minWealth>0</minWealth>
+		<label>Small</label>
 		<soldierList>
 			<li>
 				<key>RMC_RankDef_RWM_Scavenger</key>
@@ -26,8 +25,7 @@
 
 	<RMC.UnitDef>
 		<defName>RMC_UnitDef_RWM_Medium</defName>
-		<label>unit medium</label>
-		<minWealth>12500</minWealth>
+		<label>Medium</label>
 		<soldierList>
 			<li>
 				<key>RMC_RankDef_RWM_Scavenger</key>
@@ -69,8 +67,7 @@
 	
 	<RMC.UnitDef>
 		<defName>RMC_UnitDef_RWM_Large</defName>
-		<label>unit large</label>
-		<minWealth>0</minWealth>
+		<label>Large</label>
 		<soldierList>
 			<li>
 				<key>RMC_RankDef_RWM_Scavenger</key>

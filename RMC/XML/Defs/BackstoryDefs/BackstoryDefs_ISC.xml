@@ -30,7 +30,7 @@
 		<defName>RMC_BackstoryDef_ISC_Spacemarine</defName>
 		<label>spacemarine backstory</label>
 		<identifier>RMC_BackstoryDef_ISC_Spacemarine</identifier>
-		<baseDesc>During [PAWN_possessive] education at the naval academy [PAWN_nameDef] was selected for techops. [PAWN_pronoun] was educated in mathematics, science, technology, and medicine.\n\nThen assigned to the imperial spacemarine corp as a technical officer.</baseDesc>
+		<baseDesc>Since joining the orbital-deployment shock troop corps [PAWN_nameDef] has fought in countless battles, with distinction, and earned [PAWN_pronoun] his place in the imperial spacemarine corps.\n\nEneimes of the empire fear the spacemarines more than any other imperial force, for good reason.</baseDesc>
 		<title>Spacemarine</title>
 		<titleShort>Marine</titleShort>
 		<bodyTypeDef>Hulk</bodyTypeDef>
@@ -107,7 +107,7 @@
 		<defName>RMC_BackstoryDef_ISC_Officer</defName>
 		<label>officer backstory</label>
 		<identifier>RMC_BackstoryDef_ISC_Officer</identifier>
-		<baseDesc>After graduating from the naval academy [PAWN_nameDef] became a commisoned officer in the imperial spacemarine corp.\n\n[PAWN_pronoun] was eventually honored for exceptional service and assigned to the orbital deployment shock troop division.</baseDesc>
+		<baseDesc>After graduating from the naval academy [PAWN_nameDef] became a commisoned officer in the imperial spacemarine corps.\n\n[PAWN_pronoun] was eventually honored for exceptional service and assigned to the orbital-deployment shock troop division.</baseDesc>
 		<title>Imperial officer</title>
 		<titleShort>Officer</titleShort>
 	</RMC.BackstoryDef>

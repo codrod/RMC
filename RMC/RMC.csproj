@@ -87,5 +87,31 @@
     <Compile Include="TrainingDef.cs" />
     <Compile Include="UnitDef.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="XML\About\about.xml" />
+    <Content Include="XML\Defs\ArmyDefs\ArmyDefs.xml" />
+    <Content Include="XML\Defs\BackstoryDefs\BackstoryDefs_ISC.xml" />
+    <Content Include="XML\Defs\EquipmentDefs\EquipmentDefs_ISC.xml" />
+    <Content Include="XML\Defs\FactionDefs\FactionDefs_ISC.xml" />
+    <Content Include="XML\Defs\FactionDefs\FactionDefs_RWM.xml" />
+    <Content Include="XML\Defs\IncidentDefs\IncidentDefs.xml" />
+    <Content Include="XML\Defs\IncidentDefs\IncidentDefs_ISC.xml" />
+    <Content Include="XML\Defs\IncidentDefs\IncidentDefs_RWM.xml" />
+    <Content Include="XML\Defs\JobDefs\JobDefs.xml" />
+    <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_ISC.xml" />
+    <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_RWM.xml" />
+    <Content Include="XML\Defs\RankDefs\RankDefs_ISC.xml" />
+    <Content Include="XML\Defs\RankDefs\RankDefs_RWM.xml" />
+    <Content Include="XML\Defs\ThingDefs\ThingDef_Buildings.xml" />
+    <Content Include="XML\Defs\TrainingDefs\TrainingDefs_ISC.xml" />
+    <Content Include="XML\Defs\UnitDefs\UnitDefs_ISC.xml" />
+    <Content Include="XML\Defs\UnitDefs\UnitDefs_RWM.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XML\Patches\RMC_Patches_WeaponTags.xml.ignore" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /yei "$(ProjectDir)XML"  "$(OutDir).."</PostBuildEvent>
+  </PropertyGroup>
 </Project>
