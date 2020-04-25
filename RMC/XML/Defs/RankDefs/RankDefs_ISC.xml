@@ -6,7 +6,7 @@
 		<defName>RMC_RankDef_ISC_Colonist</defName>
 		<label>Colonist</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Colonist</pawnKindDef>
-		<weapon>VWE_Gun_ChargePistol</weapon>
+		<weapon>Gun_Autopistol</weapon>
 		<cost>500</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
@@ -48,7 +48,7 @@
 		<title>Sgt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_High</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
-		<weapon>VWE_Gun_ChargeMinigun</weapon>
+		<weapon>Gun_ChargeLance</weapon>
 		<cost>1000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
@@ -67,7 +67,7 @@
 		<adulthood>RMC_BackstoryDef_ISC_Tech</adulthood>
 		<trainingDef>RMC_TrainingDef_ISC_Tech</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
-		<weapon>VWE_Gun_ChargeSniperRifle</weapon>
+		<weapon>Gun_SniperRifle</weapon>
 		<cost>2000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
@@ -79,7 +79,7 @@
 		<title>Lt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
-		<weapon>VWE_Gun_ChargeLMG</weapon>
+		<weapon>Gun_ChargeLance</weapon>
 		<cost>2000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>
@@ -91,7 +91,7 @@
 		<title>Capt.</title>
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
-		<weapon>VWE_Gun_ChargeLMG</weapon>
+		<weapon>Gun_ChargeLance</weapon>
 		<cost>2000</cost>
 		<spawnTime>6000</spawnTime>
 	</RMC.RankDef>

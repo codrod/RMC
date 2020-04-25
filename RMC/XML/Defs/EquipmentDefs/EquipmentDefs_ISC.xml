@@ -53,10 +53,10 @@
 				<stuff>Synthread</stuff>
 			</li>
 			<li>
-				<thing>VAE_Apparel_LightMarineArmor</thing>
+				<thing>Apparel_ArmorRecon</thing>
 			</li>
 			<li>
-				<thing>VAE_Headgear_LightMarineHelmet</thing>
+				<thing>Apparel_ArmorHelmetRecon</thing>
 			</li>
 		</equipmentList>
 	</RMC.EquipmentDef>
@@ -74,10 +74,10 @@
 				<stuff>Synthread</stuff>
 			</li>
 			<li>
-				<thing>VAE_Apparel_HeavyMarineArmor</thing>
+				<thing>Apparel_PowerArmor</thing>
 			</li>
 			<li>
-				<thing>VAE_Headgear_HeavyMarineHelmet</thing>
+				<thing>Apparel_PowerArmorHelmet</thing>
 			</li>
 		</equipmentList>
 	</RMC.EquipmentDef>
