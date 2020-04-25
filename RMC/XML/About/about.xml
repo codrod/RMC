@@ -3,6 +3,8 @@
 <ModMetaData>
 	<name>Rimworld Military Colony</name>
 	<author>Cody M. Rodgers</author>
+	<packageId>rodgers.rmc</packageId>
+	<url>https://github.com/codrod/RMC</url>
 	<description>
 		Rimworld Military Colony
 	</description>
