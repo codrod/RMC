@@ -110,9 +110,14 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Scenarios\Imperial Spacemarine Corps.rsc" />
+    <None Include="Scenarios\Rimworld Mercenaries.rsc" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy /yei "$(ProjectDir)XML"  "$(OutDir).."
-xcopy /yei "$(ProjectDir)About"  "$(OutDir)..\..\About"</PostBuildEvent>
+xcopy /yei "$(ProjectDir)About"  "$(OutDir)..\..\About"
+xcopy /yei "$(ProjectDir)Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"</PostBuildEvent>
   </PropertyGroup>
 </Project>
