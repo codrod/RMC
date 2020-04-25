@@ -34,11 +34,6 @@
 			</li>
 			<li Class="ScenPart_StartingThing_Defined">
 				<def>StartingThing_Defined</def>
-				<thingDef>Silver</thingDef>
-				<count>500</count>
-			</li>
-			<li Class="ScenPart_StartingThing_Defined">
-				<def>StartingThing_Defined</def>
 				<thingDef>MealSurvivalPack</thingDef>
 				<count>225</count>
 			</li>

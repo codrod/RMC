@@ -78,7 +78,7 @@ namespace RMC
             return newUnit;
         }
 
-        public UnitDef SetRandomUnitSize()
+        public UnitDef GenerateRandomUnit()
         {
             UnitDef newUnit = new UnitDef(this);
 
