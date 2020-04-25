@@ -10,14 +10,10 @@ namespace RMC
     public class ArmyDef : Def
     {
         public FactionDef factionDef = null;
-        public IncidentDef deployIncident = null;
-        public IncidentDef reinforceIncident = null;
         public bool useDropPods = true;
-        public int minDaysOfFood = 0;
-        public int daysOfFoodToGive = 0;
-        public ThingDef foodToGive = null;
         public List<UnitDef> unitList = new List<UnitDef>();
         public List<RankDef> rankList = new List<RankDef>();
+        public UnitDef startingUnit = new UnitDef();
 
         public ArmyDef()
         {
@@ -45,6 +41,7 @@ namespace RMC
             return army;
         }
 
+        /*
         public UnitDef GetReinforcements(Map map)
         {
             UnitDef maxUnit = null, survivors = null, reinforcements = null;
@@ -55,6 +52,7 @@ namespace RMC
 
             return reinforcements;
         }
+        */
 
         public RankDef GetPawnRank(Pawn pawn)
         {
@@ -85,6 +83,7 @@ namespace RMC
             return GetUnitFromList(map.mapPawns.FreeColonistsAndPrisoners);
         }
 
+        /*
         public UnitDef GetMaxUnitForMap(Map map)
         {
             UnitDef maxUnit = null;
@@ -99,22 +98,7 @@ namespace RMC
 
             return maxUnit;
         }
-
-        public void GiveMinFood(int unitSize, Map map, IntVec3 centerCell)
-        {
-            if (minDaysOfFood == 0 || daysOfFoodToGive == 0 || foodToGive == null || unitSize * 3 * minDaysOfFood <= (int)map.resourceCounter.TotalHumanEdibleNutrition)
-                return;
-
-            Thing foodThing = ThingMaker.MakeThing(foodToGive, null);
-            foodThing.stackCount = (int)((unitSize * 3 * daysOfFoodToGive) / foodToGive.statBases.GetStatValueFromList(StatDef.Named("Nutrition"), 1.0f));
-
-            List<Thing> things = new List<Thing>();
-            things.Add(foodThing);
-
-            SendToMap(things, map, centerCell);
-
-            return;
-        }
+        */
 
         public List<Pawn> GenerateUnit(UnitDef unit)
         {

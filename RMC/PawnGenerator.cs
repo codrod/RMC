@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Verse;
 using RimWorld;
-using Harmony;
 
 namespace RMC
 {
@@ -10,7 +9,7 @@ namespace RMC
     {
         public static Pawn GeneratePawnWithRank(RankDef rank)
         {
-            Pawn pawn = Verse.PawnGenerator.GeneratePawn(new PawnGenerationRequest(rank.pawnKindDef, Find.World.factionManager.FirstFactionOfDef(rank.pawnKindDef.defaultFactionType), PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 1f, true, true, true, false, false, false, false, null, null, null, null, null, null, null, null));
+            Pawn pawn = Verse.PawnGenerator.GeneratePawn(new PawnGenerationRequest(rank.pawnKindDef, Find.World.factionManager.FirstFactionOfDef(rank.pawnKindDef.defaultFactionType), PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 1f, true, true, true, false, false, false, false, false, 0.0f, null, 0.0f, null, null, null, null));
 
             if(rank.destroyInventory)
             {

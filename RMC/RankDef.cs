@@ -17,7 +17,7 @@ namespace RMC
         public EquipmentDef equipmentDef = null;
         public ThingDef weapon = null;
         public bool destroyInventory = false;
-        public int cost = 0;
+        public float cost = 0f;
         public int spawnTime = 0;
 
         public RankDef()

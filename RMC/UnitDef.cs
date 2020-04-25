@@ -12,8 +12,6 @@ namespace RMC
     {
         public Dictionary<RankDef, RankCount> soldierList = new Dictionary<RankDef, RankCount>();
 
-        public double minWealth = 0.0;
-
         public UnitDef()
         {
             return;
@@ -25,8 +23,6 @@ namespace RMC
 
             foreach (RankDef rank in otherUnit.soldierList.Keys)
                 soldierList.Add(rank, new RankCount(otherUnit.soldierList[rank]));
-
-            minWealth = otherUnit.minWealth;
 
             return;
         }
@@ -42,9 +38,9 @@ namespace RMC
             return this;
         }
 
-        public int GetUnitCost()
+        public float GetUnitCost()
         {
-            int totalCost = 0;
+            float totalCost = 0f;
 
             foreach (RankDef rank in soldierList.Keys)
             {
@@ -138,6 +134,8 @@ namespace RMC
         public int min = 0;
         public int max = 0;
         public int count = 0;
+        //See RMC.Dialog_Trade
+        public string editBuffer = "";
 
         public RankCount()
         {
