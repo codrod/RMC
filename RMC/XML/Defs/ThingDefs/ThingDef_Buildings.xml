@@ -3,10 +3,10 @@
 <Defs>
 
 	<ThingDef ParentName="BuildingBase">
-		<defName>RMC_ThingDef_CommsConsole</defName>
+		<defName>RMC_ThingDef_MilitaryCommsConsole</defName>
 		<label>military comms console</label>
-		<description>Allows radio contact with other factions and orbital traders.</description>
-		<thingClass>RMC.Building_CommsConsole</thingClass>
+		<description>Allows the request of reinforcments.</description>
+		<thingClass>RMC.Building_MilitaryCommsConsole</thingClass>
 		<graphicData>
 			<texPath>Things/Building/Misc/CommsConsole</texPath>
 			<graphicClass>Graphic_Multi</graphicClass>

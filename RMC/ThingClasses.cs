@@ -8,7 +8,7 @@ using RimWorld;
 
 namespace RMC
 {
-    public class Building_CommsConsole : RimWorld.Building_CommsConsole
+    public class Building_MilitaryCommsConsole : RimWorld.Building_CommsConsole
     {
         public override IEnumerable<FloatMenuOption> GetFloatMenuOptions(Pawn negotiator)
         {
@@ -22,7 +22,7 @@ namespace RMC
 
         public new void GiveUseCommsJob(Pawn negotiator, ICommunicable target)
         {
-            Job job = new Job(DefDatabase<JobDef>.GetNamed("RMC_JobDef_UseCommsConsole"), this);
+            Job job = new Job(DefDatabase<JobDef>.GetNamed("RMC_JobDef_UseMilitaryCommsConsole"), this);
             job.commTarget = target;
             negotiator.jobs.TryTakeOrderedJob(job, JobTag.Misc);
             PlayerKnowledgeDatabase.KnowledgeDemonstrated(ConceptDefOf.OpeningComms, KnowledgeAmount.Total);

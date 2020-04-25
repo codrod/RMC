@@ -9,7 +9,7 @@ using Verse.AI;
 
 namespace RMC
 {
-    public class JobDriver_UseCommsConsole : RimWorld.JobDriver_UseCommsConsole
+    public class JobDriver_UseMilitaryCommsConsole : RimWorld.JobDriver_UseCommsConsole
     {
         protected override IEnumerable<Toil> MakeNewToils()
         {

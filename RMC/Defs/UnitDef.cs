@@ -134,7 +134,7 @@ namespace RMC
         public int min = 0;
         public int max = 0;
         public int count = 0;
-        //See RMC.Dialog_Trade
+        //See RMC.Dialog_Recruit
         public string editBuffer = "";
 
         public RankCount()
