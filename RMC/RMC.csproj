@@ -72,20 +72,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArmyDef.cs" />
+    <Compile Include="Defs\ArmyDef.cs" />
     <Compile Include="Dialogs.cs" />
-    <Compile Include="BackstoryDef.cs" />
-    <Compile Include="EquipmentDef.cs" />
+    <Compile Include="Defs\BackstoryDef.cs" />
+    <Compile Include="Defs\EquipmentDef.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="IncidentWorkers.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="MapUtilities.cs" />
     <Compile Include="PawnGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RankDef.cs" />
+    <Compile Include="Defs\RankDef.cs" />
     <Compile Include="ThingClasses.cs" />
-    <Compile Include="TrainingDef.cs" />
-    <Compile Include="UnitDef.cs" />
+    <Compile Include="Defs\TrainingDef.cs" />
+    <Compile Include="Defs\UnitDef.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="XML\About\about.xml" />
