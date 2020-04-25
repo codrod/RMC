@@ -76,7 +76,7 @@
     <Compile Include="IncidentWorkers.cs" />
     <Compile Include="JobDrivers.cs" />
     <Compile Include="MapUtilities.cs" />
-    <Compile Include="PawnGenerator.cs" />
+    <Compile Include="SoldierGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Defs\RankDef.cs" />
     <Compile Include="ThingClasses.cs" />

@@ -5,11 +5,11 @@ using RimWorld;
 
 namespace RMC
 {
-    public static class PawnGenerator
+    public static class SoldierGenerator
     {
-        public static Pawn GeneratePawnWithRank(RankDef rank)
+        public static Pawn GenerateSoldier(RankDef rank)
         {
-            Pawn pawn = Verse.PawnGenerator.GeneratePawn(new PawnGenerationRequest(rank.pawnKindDef, Find.World.factionManager.FirstFactionOfDef(rank.pawnKindDef.defaultFactionType), PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 1f, true, true, true, false, false, false, false, false, 0.0f, null, 0.0f, null, null, null, null));
+            Pawn pawn = Verse.PawnGenerator.GeneratePawn(new PawnGenerationRequest(rank.pawnKindDef, Find.World.factionManager.OfPlayer, PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 1f, true, true, true, false, false, false, false, false, 0.0f, null, 0.0f, null, null, null, null));
 
             if(rank.destroyInventory)
             {

@@ -78,7 +78,7 @@ namespace RMC
 
             foreach (KeyValuePair<RankDef, RankCount> rankCount in unit.soldierList)
                 for (int j = 0; j < rankCount.Value.count; j++)
-                    pawns.Add(PawnGenerator.GeneratePawnWithRank(rankCount.Key));
+                    pawns.Add(SoldierGenerator.GenerateSoldier(rankCount.Key));
 
             return pawns;
         }
