@@ -7,8 +7,8 @@
 		<label>Colonist</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Colonist</pawnKindDef>
 		<weapon>Gun_Autopistol</weapon>
-		<cost>500</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>1000</cost>
+		<spawnTime>60000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef Abstract="True" Name="RMC_RankDef_ISC_Spacemarine_Base">
@@ -25,8 +25,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Low</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_ChargeRifle</weapon>
-		<cost>1000</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>2500</cost>
+		<spawnTime>60000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">
@@ -37,8 +37,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Medium</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_ChargeRifle</weapon>
-		<cost>1000</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>5000</cost>
+		<spawnTime>120000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">
@@ -49,8 +49,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_High</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>1000</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>10000</cost>
+		<spawnTime>240000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef Abstract="True" Name="RMC_RankDef_ISC_Officer_Base">
@@ -68,8 +68,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Tech</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_SniperRifle</weapon>
-		<cost>2000</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>15000</cost>
+		<spawnTime>480000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
@@ -80,8 +80,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>2000</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>20000</cost>
+		<spawnTime>900000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
@@ -92,8 +92,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>2000</cost>
-		<spawnTime>6000</spawnTime>
+		<cost>25000</cost>
+		<spawnTime>900000</spawnTime>
 	</RMC.RankDef>
 	
 </Defs>

@@ -4,15 +4,18 @@
 	<PawnKindDef Name="RMC_PawnKindDef_RWM_Base" Abstract="True">
 		<race>Human</race>
 		<defaultFactionType>RMC_FactionDef_RWM_Colony</defaultFactionType>
-		<chemicalAddictionChance>0.1</chemicalAddictionChance>
+    <isFighter>true</isFighter>
+    <combatPower>100</combatPower>
+		<chemicalAddictionChance>0.15</chemicalAddictionChance>
 		<invNutrition>2.55</invNutrition>
 		<backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
-		<maxGenerationAge>55</maxGenerationAge>
 		<combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
 		<combatEnhancingDrugsCount>
 			<min>0</min>
 			<max>2</max>
 		</combatEnhancingDrugsCount>
+    <minGenerationAge>18</minGenerationAge>
+    <maxGenerationAge>45</maxGenerationAge>
 	</PawnKindDef>
 	
 	<PawnKindDef ParentName="RMC_PawnKindDef_RWM_Base">
@@ -107,18 +110,6 @@
 		<weaponMoney>
 			<min>245</min>
 			<max>300</max>
-		</weaponMoney>
-	</PawnKindDef>
-
-	<PawnKindDef ParentName="RMC_PawnKindDef_RWM_Grenadier_Base">
-		<defName>RMC_PawnKindDef_RWM_Grenadier_EMP</defName>
-		<label>EMP grenadier</label>
-		<weaponTags>
-			<li>GrenadeEMP</li>
-		</weaponTags>
-		<weaponMoney>
-			<min>315</min>
-			<max>400</max>
 		</weaponMoney>
 	</PawnKindDef>
 
@@ -291,7 +282,6 @@
   
 	<PawnKindDef Abstract="True" Name="RMC_PawnKindDef_RWM_EliteTier_Base" ParentName="RMC_PawnKindDef_RWM_Base">
 		<combatPower>150</combatPower>
-		<maxGenerationAge>45</maxGenerationAge>
 		<backstoryCryptosleepCommonality>0.25</backstoryCryptosleepCommonality>
 		<gearHealthRange>
 			<min>1</min>
@@ -319,13 +309,13 @@
 			<li>SpacerGun</li>
 		</weaponTags>
 		<techHediffsMoney>
-			<min>400</min>
-			<max>1000</max>
+			<min>1000</min>
+      <max>2000</max>
 		</techHediffsMoney>
 		<techHediffsTags>
 			<li>Advanced</li>
 		</techHediffsTags>
-		<techHediffsChance>0.35</techHediffsChance>
+		<techHediffsChance>0.60</techHediffsChance>
 		<combatEnhancingDrugsChance>0.80</combatEnhancingDrugsChance>
 		<combatEnhancingDrugsCount>
 			<min>1</min>

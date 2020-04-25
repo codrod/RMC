@@ -52,12 +52,13 @@ namespace RMC
 
         public int GetUnitSpawnTime()
         {
-            int totalTime = 0;
+            int spawnTime = 0;
 
             foreach (RankDef rank in soldierList.Keys)
-                totalTime += soldierList[rank].count * rank.spawnTime;
+                if (rank.spawnTime * soldierList[rank].count > spawnTime)
+                    spawnTime = rank.spawnTime * soldierList[rank].count;
 
-            return totalTime;
+            return spawnTime;
         }
 
         public UnitDef SubtractUnit(UnitDef otherUnit)

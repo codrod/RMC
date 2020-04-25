@@ -101,6 +101,7 @@
     <Content Include="XML\Defs\RankDefs\RankDefs_ISC.xml" />
     <Content Include="XML\Defs\RankDefs\RankDefs_RWM.xml" />
     <Content Include="XML\Defs\ThingDefs\ThingDef_Buildings.xml" />
+    <Content Include="XML\Defs\TrainingDefs\TrainingDefs_RWM.xml" />
     <Content Include="XML\Defs\TrainingDefs\TrainingDefs_ISC.xml" />
     <Content Include="XML\Defs\UnitDefs\UnitDefs_ISC.xml" />
     <Content Include="XML\Defs\UnitDefs\UnitDefs_RWM.xml" />
