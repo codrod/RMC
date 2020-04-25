@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RMC</RootNamespace>
     <AssemblyName>RMC</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -17,10 +17,11 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\RimWorld Military Colony\Assemblies\</OutputPath>
+    <OutputPath>D:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\RimWorld Military Colony\1.1\Assemblies\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
@@ -41,9 +43,6 @@
     <Reference Include="Assembly-CSharp-firstpass">
       <HintPath>D:\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
-    </Reference>
-    <Reference Include="HarmonyMod">
-      <HintPath>D:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods\Harmony\v1.1\Assemblies\HarmonyMod.dll</HintPath>
     </Reference>
     <Reference Include="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -88,7 +87,7 @@
     <Compile Include="Defs\UnitDef.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XML\About\about.xml" />
+    <Content Include="About\About.xml" />
     <Content Include="XML\Defs\ArmyDefs\ArmyDefs.xml" />
     <Content Include="XML\Defs\BackstoryDefs\BackstoryDefs_ISC.xml" />
     <Content Include="XML\Defs\EquipmentDefs\EquipmentDefs_ISC.xml" />
@@ -112,6 +111,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /yei "$(ProjectDir)XML"  "$(OutDir).."</PostBuildEvent>
+    <PostBuildEvent>xcopy /yei "$(ProjectDir)XML"  "$(OutDir).."
+xcopy /yei "$(ProjectDir)About"  "$(OutDir)..\..\About"</PostBuildEvent>
   </PropertyGroup>
 </Project>

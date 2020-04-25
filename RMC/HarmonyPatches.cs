@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using HarmonyLib;
 
 /*
  * flakjacket is incorrectly tagged as not military apparel
@@ -24,12 +25,12 @@ namespace RMC
             Log.Message("RMC: Started");
             Backstory backstory = null;
 
-           /* var harmony = HarmonyInstance.Create("com.github.RimWorld.RMC");
+            var harmony = new Harmony("com.github.codrod.RMC");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             foreach(BackstoryDef backstoryDef in DefDatabase<BackstoryDef>.AllDefs)
                 if(!BackstoryDatabase.TryGetWithIdentifier(backstoryDef.identifier, out backstory))
-                    BackstoryDatabase.AddBackstory(backstoryDef.NewBackstory());*/
+                    BackstoryDatabase.AddBackstory(backstoryDef.NewBackstory());
 
             Log.Message("RMC: Loaded");
         }
