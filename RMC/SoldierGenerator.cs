@@ -60,6 +60,18 @@ namespace RMC
                 pawn.Name = newName;
             }
 
+            if (rank.chronologicalAge > -1)
+            {
+                try
+                {
+                    pawn.ageTracker.AgeChronologicalTicks = rank.chronologicalAge * 3600000;
+                }
+                catch (Exception ex)
+                {
+                    Log.Message("RMC: ERROR: Chronological age in ticks caused overflow");
+                }
+            }
+
             return;
         }
 

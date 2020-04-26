@@ -10,11 +10,6 @@ using System.Diagnostics;
 using System.Linq;
 using HarmonyLib;
 
-/*
- * flakjacket is incorrectly tagged as not military apparel
- */
-
-
 namespace RMC
 {
     [StaticConstructorOnStartup]

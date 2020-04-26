@@ -16,6 +16,7 @@ namespace RMC
         public TrainingDef trainingDef = null;
         public EquipmentDef equipmentDef = null;
         public ThingDef weapon = null;
+        public int chronologicalAge = -1;
         public bool destroyInventory = false;
         public float cost = 0f;
         public int spawnTime = 0;
