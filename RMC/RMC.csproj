@@ -86,6 +86,7 @@
   <ItemGroup>
     <Content Include="About\About.xml" />
     <Content Include="XML\Defs\ArmyDefs\ArmyDefs.xml" />
+    <Content Include="XML\Defs\BackstoryDefs\BackstoryDefs_RWM.xml" />
     <Content Include="XML\Defs\BackstoryDefs\BackstoryDefs_ISC.xml" />
     <Content Include="XML\Defs\EquipmentDefs\EquipmentDefs_ISC.xml" />
     <Content Include="XML\Defs\FactionDefs\FactionDefs_ISC.xml" />
@@ -100,7 +101,9 @@
     </Content>
     <Content Include="XML\Defs\RankDefs\RankDefs_ISC.xml" />
     <Content Include="XML\Defs\RankDefs\RankDefs_RWM.xml" />
-    <Content Include="XML\Defs\ThingDefs\ThingDef_Buildings.xml" />
+    <Content Include="XML\Defs\ThingDefs\ThingDef_Buildings.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="XML\Defs\TrainingDefs\TrainingDefs_RWM.xml" />
     <Content Include="XML\Defs\TrainingDefs\TrainingDefs_ISC.xml" />
     <Content Include="XML\Defs\UnitDefs\UnitDefs_ISC.xml" />

@@ -68,7 +68,7 @@ namespace RMC
                 }
                 catch (Exception ex)
                 {
-                    Log.Message("RMC: ERROR: Chronological age in ticks caused overflow");
+                    Log.Error($"RMC: Chronological age (in ticks) for RankDef '{rank.defName}' caused overflow: {rank.chronologicalAge}");
                 }
             }
 

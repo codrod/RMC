@@ -63,10 +63,10 @@ namespace RMC
             Rect rect6 = new Rect(0f, 58f, 116f, 30f);
             Widgets.Label(rect6, negotiator.Map.resourceCounter.Silver.ToString());
 
-            Rect rect62 = new Rect(inRect.width - 143f, 58f, 100f, 30f);
+            Rect rect62 = new Rect(inRect.width - 143f, 58f, 150f, 30f);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(rect62, "-" + reinforcements.GetUnitCost().ToString());
+            Widgets.Label(rect62, "-" + reinforcements.GetUnitCost().ToString() + " : ~" + reinforcements.GetUnitSpawnTime() / 60000 + " days");
 
             Text.Anchor = TextAnchor.MiddleLeft;
             GUI.color = Color.white;

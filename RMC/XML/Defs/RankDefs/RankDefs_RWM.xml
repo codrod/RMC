@@ -14,7 +14,8 @@
 		<defName>RMC_RankDef_RWM_Gunner</defName>
 		<label>Mercenary gunner</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Gunner</pawnKindDef>
-    <trainingDef>RMC_TrainingDef_ISC_Low</trainingDef>
+    <trainingDef>RMC_TrainingDef_RWM_Low</trainingDef>
+    <adulthood>RMC_BackstoryDef_RWM_Mercenary</adulthood>
     <cost>1500</cost>
     <spawnTime>60000</spawnTime>
 	</RMC.RankDef>
@@ -24,6 +25,7 @@
 		<label>Mercenary grenadier</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Grenadier_Destructive</pawnKindDef>
     <trainingDef>RMC_TrainingDef_RWM_Low</trainingDef>
+    <adulthood>RMC_BackstoryDef_RWM_Mercenary</adulthood>
     <cost>2500</cost>
     <spawnTime>60000</spawnTime>
 	</RMC.RankDef>
@@ -33,6 +35,7 @@
 		<label>Mercenary slasher</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Slasher</pawnKindDef>
     <trainingDef>RMC_TrainingDef_RWM_Melee</trainingDef>
+    <adulthood>RMC_BackstoryDef_RWM_Mercenary</adulthood>
     <cost>1500</cost>
     <spawnTime>60000</spawnTime>
 	</RMC.RankDef>
@@ -42,6 +45,7 @@
 		<label>Mercenary sniper</label>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Sniper</pawnKindDef>
     <trainingDef>RMC_TrainingDef_RWM_Medium</trainingDef>
+    <adulthood>RMC_BackstoryDef_RWM_Mercenary</adulthood>
     <cost>5000</cost>
     <spawnTime>120000</spawnTime>
 	</RMC.RankDef>
@@ -52,6 +56,7 @@
     <title>Capt.</title>
 		<pawnKindDef>RMC_PawnKindDef_RWM_Elite</pawnKindDef>
     <trainingDef>RMC_TrainingDef_RWM_High</trainingDef>
+    <adulthood>RMC_BackstoryDef_RWM_Mercenary_Captain</adulthood>
     <cost>10000</cost>
     <spawnTime>240000</spawnTime>
 	</RMC.RankDef>
