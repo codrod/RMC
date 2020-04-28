@@ -50,7 +50,7 @@ namespace RMC
             return null;
         }
 
-        public UnitDef GetUnitFromList(IEnumerable<Pawn> pawns)
+        public UnitDef CreateUnitOfPawns(IEnumerable<Pawn> pawns)
         {
             UnitDef unit = new UnitDef();
 
@@ -62,12 +62,12 @@ namespace RMC
 
         public UnitDef GetAllSoldiersInArmy()
         {
-            return GetUnitFromList(PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists);
+            return CreateUnitOfPawns(PawnsFinder.AllMapsCaravansAndTravelingTransportPods_Alive_Colonists);
         }
 
         public UnitDef GetAllSoldiersInMap(Map map)
         {
-            return GetUnitFromList(map.mapPawns.FreeColonistsAndPrisoners);
+            return CreateUnitOfPawns(map.mapPawns.FreeColonistsAndPrisoners);
         }
 
         public IEnumerable<Thing> SendToMap(IEnumerable<Thing> things, Map map, IntVec3 centerCell)

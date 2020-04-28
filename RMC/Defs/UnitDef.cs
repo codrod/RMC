@@ -10,19 +10,9 @@ namespace RMC
 {
     public class UnitDef : Def, IEnumerable, IExposable
     {
-        public Dictionary<RankDef, int> soldiers = new Dictionary<RankDef, int>();
+        private Dictionary<RankDef, int> soldiers = new Dictionary<RankDef, int>();
 
         public UnitDef() {}
-
-        public UnitDef(UnitDef otherUnit)
-        {
-            soldiers = new Dictionary<RankDef, int>();
-
-            foreach (RankDef rank in otherUnit.soldiers.Keys)
-                soldiers.Add(rank, otherUnit.soldiers[rank]);
-
-            return;
-        }
 
         public UnitDef Add(RankDef rank)
         {
@@ -40,14 +30,12 @@ namespace RMC
             float totalCost = 0f;
 
             foreach (RankDef rank in soldiers.Keys)
-            {
                 totalCost += soldiers[rank] * rank.cost;
-            }
 
             return totalCost;
         }
 
-        public int GetUnitSpawnTime()
+        public int GetSpawnTime()
         {
             int spawnTime = 0;
 
@@ -58,38 +46,18 @@ namespace RMC
             return spawnTime;
         }
 
-        public UnitDef SubtractUnit(UnitDef otherUnit)
+        public static UnitDef CreateUnitFromArrays(RankDef[] ranks, int[] counts)
         {
-            UnitDef newUnit = new UnitDef(this);
+            UnitDef unit = new UnitDef();
 
-            foreach (RankDef otherRank in otherUnit.soldiers.Keys)
-            {
-                if (newUnit.soldiers.ContainsKey(otherRank))
-                {
-                    if (newUnit.soldiers[otherRank] > otherUnit.soldiers[otherRank])
-                        newUnit.soldiers[otherRank] = newUnit.soldiers[otherRank] - otherUnit.soldiers[otherRank];
-                    else
-                        newUnit.soldiers.Remove(otherRank);
-                }
-            }
+            for (int i = 0; i < ranks.Length; i++)
+                if (counts[i] > 0)
+                    unit.soldiers.Add(ranks[i], counts[i]);
 
-            return newUnit;
+            return unit;
         }
 
-        /*
-        public UnitDef GenerateRandomUnit()
-        {
-            UnitDef newUnit = new UnitDef(this);
-
-            foreach (RankDef rank in newUnit.soldiers.Keys)
-                if (newUnit.soldiers[rank].max > 0)
-                    newUnit.soldiers[rank].count = Rand.RangeInclusive(newUnit.soldiers[rank].min, newUnit.soldiers[rank].max);
-
-            return newUnit;
-        }
-        */
-
-        public int GetUnitSize()
+        public int GetSize()
         {
             int size = 0;
 
@@ -99,7 +67,7 @@ namespace RMC
             return size;
         }
 
-        public List<Pawn> GenerateUnit()
+        public List<Pawn> Spawn()
         {
             List<Pawn> pawns = new List<Pawn>();
 
@@ -130,43 +98,9 @@ namespace RMC
             string str = "";
 
             foreach (RankDef rank in soldiers.Keys)
-            {
                 str += rank.label + ": " + soldiers[rank] + "\n";
-            }
                 
             return str;
         }
     }
-
-    /*
-    public class RankCount
-    {
-        public int min = 0;
-        public int max = 0;
-        public int count = 0;
-        //See RMC.Dialog_Recruit
-        public string editBuffer = "";
-
-        public RankCount()
-        {
-            return;
-        }
-
-        public RankCount(RankCount otherRankCount)
-        {
-            min = otherRankCount.min;
-            max = otherRankCount.max;
-            count = otherRankCount.count;
-
-            return;
-        }
-
-        public RankCount(int count)
-        {
-            this.count = count;
-
-            return;
-        }
-    }
-    */
 }

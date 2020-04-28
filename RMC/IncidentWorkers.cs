@@ -19,8 +19,6 @@ namespace RMC
         public void ExposeData()
         {
             base.ExposeData();
-            //List<RankDef> keys = soldiers.Keys.ToList();
-            //List<int> values = soldiers.Values.ToList();
             Scribe_Deep.Look(ref reinforcements, "reinforcements");
         }
     }
@@ -33,8 +31,6 @@ namespace RMC
             IntVec3 arrivalCell = new IntVec3();
             ArmyDef armyDef = null;
             UnitDef reinforcements;
-
-            //Log.Message("" + GenDate.DaysPassed + " "+parms.faction);
 
             if (parms.faction == null)
             {
@@ -55,7 +51,8 @@ namespace RMC
             }
             catch (InvalidCastException)
             {
-                reinforcements = new UnitDef();
+                Log.Error("RMC: Deployment indcident has incorrect parameter type: no unit will be spawned");
+                return false;
             }
 
             if (armyDef.useDropPods == true || GenDate.DaysPassed == 0)
@@ -63,7 +60,7 @@ namespace RMC
             else
                 RCellFinder.TryFindRandomPawnEntryCell(out arrivalCell, map, 1.0f);
 
-            armyDef.SendToMap(reinforcements.GenerateUnit().Cast<Thing>(), map, arrivalCell);
+            armyDef.SendToMap(reinforcements.Spawn().Cast<Thing>(), map, arrivalCell);
 
             if(GenDate.DaysPassed > 0)
                 Find.LetterStack.ReceiveLetter(def.letterLabel, def.letterText, LetterDefOf.PositiveEvent, new TargetInfo(arrivalCell, map, false));

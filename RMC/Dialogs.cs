@@ -97,7 +97,7 @@ namespace RMC
                     incidentParms.target = negotiator.Map;
                     incidentParms.faction = negotiator.Faction;
                     incidentParms.forced = true;
-                    incidentParms.reinforcements = CreateUnit();
+                    incidentParms.reinforcements = UnitDef.CreateUnitFromArrays(ranks, counts);
                     Find.Storyteller.incidentQueue.Add(DefDatabase<IncidentDef>.GetNamed("RMC_IncidentDef_Deploy"), arrivalTick, incidentParms, 240000);
 
                     this.Close(true);
@@ -202,40 +202,18 @@ namespace RMC
 
         public float GetUnitCost()
         {
-            float cost = 0.0f;
-
-            for (int i = 0; i < ranks.Length; i++)
-                cost += ranks[i].cost * counts[i];
-
-            return cost;
+            return UnitDef.CreateUnitFromArrays(ranks, counts).GetUnitCost();
         }
 
         public int GetUnitSpawnTime()
         {
-            int spawnTime = 0;
-
-            for (int i = 0; i < ranks.Length; i++)
-                if (ranks[i].spawnTime * counts[i] > spawnTime)
-                    spawnTime = ranks[i].spawnTime * counts[i];
-
-            return spawnTime;
+            return UnitDef.CreateUnitFromArrays(ranks, counts).GetSpawnTime();
         }
 
         public void SetCounts()
         {
             editBuffers = new string[army.rankList.Count];
             counts = new int[army.rankList.Count];
-        }
-
-        public UnitDef CreateUnit()
-        {
-            UnitDef unit = new UnitDef();
-
-            for (int i = 0; i < ranks.Length; i++)
-                if (counts[i] > 0)
-                    unit.soldiers.Add(ranks[i], counts[i]);
-
-            return unit;
         }
     }
 }
