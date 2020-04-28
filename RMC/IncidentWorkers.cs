@@ -12,9 +12,17 @@ using System.Linq;
 
 namespace RMC
 {
-    public class IncidentParms_Deploy : IncidentParms
+    public class IncidentParms_Deploy : IncidentParms, IExposable
     {
-        public UnitDef reinforcements = new UnitDef();
+        public Dictionary<RankDef, int> soldiers = new Dictionary<RankDef, int>();
+
+        public void ExposeData()
+        {
+            base.ExposeData();
+            //List<RankDef> keys = soldiers.Keys.ToList();
+            //List<int> values = soldiers.Values.ToList();
+            Scribe_Collections.Look(ref soldiers, "soldiers", LookMode.Def, LookMode.Value);//, ref keys, ref values);
+        }
     }
 
     public class IncidentWorker_Deploy : IncidentWorker
@@ -43,7 +51,10 @@ namespace RMC
                 if (GenDate.DaysPassed == 0)
                     reinforcements = armyDef.startingUnit;
                 else
-                    reinforcements = ((IncidentParms_Deploy)parms).reinforcements;
+                {
+                    reinforcements = new UnitDef();
+                    reinforcements.soldiers = ((IncidentParms_Deploy)parms).soldiers;
+                }
             }
             catch (InvalidCastException)
             {

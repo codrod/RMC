@@ -8,7 +8,7 @@ using Verse;
 
 namespace RMC
 {
-    public class UnitDef : Def, IEnumerable
+    public class UnitDef : Def, IEnumerable, IExposable
     {
         public Dictionary<RankDef, int> soldiers = new Dictionary<RankDef, int>();
 
@@ -115,14 +115,14 @@ namespace RMC
             return DefDatabase<UnitDef>.GetNamed(defName);
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public void ExposeData()
         {
-            return (IEnumerator)GetEnumerator();
+            Scribe_Collections.Look(ref soldiers, "soldiers", LookMode.Def, LookMode.Value);
         }
 
-        public Dictionary<RankDef, int>.Enumerator GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
-            return soldiers.GetEnumerator();
+            return ((IEnumerable)soldiers).GetEnumerator();
         }
 
         public override string ToString()
