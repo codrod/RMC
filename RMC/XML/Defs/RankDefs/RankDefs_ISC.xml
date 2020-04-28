@@ -7,7 +7,7 @@
 		<label>Colonist</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Colonist</pawnKindDef>
 		<weapon>Gun_Autopistol</weapon>
-		<cost>1000</cost>
+		<cost>500</cost>
 		<spawnTime>60000</spawnTime>
 	</RMC.RankDef>
 	
@@ -26,7 +26,7 @@
 		<trainingDef>RMC_TrainingDef_ISC_Low</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_ChargeRifle</weapon>
-		<cost>2500</cost>
+		<cost>1000</cost>
 		<spawnTime>60000</spawnTime>
 	</RMC.RankDef>
 	
@@ -38,7 +38,7 @@
 		<trainingDef>RMC_TrainingDef_ISC_Medium</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_ChargeRifle</weapon>
-		<cost>5000</cost>
+		<cost>2000</cost>
 		<spawnTime>120000</spawnTime>
 	</RMC.RankDef>
 	
@@ -50,7 +50,7 @@
 		<trainingDef>RMC_TrainingDef_ISC_High</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>10000</cost>
+		<cost>3000</cost>
 		<spawnTime>240000</spawnTime>
 	</RMC.RankDef>
 	
@@ -69,7 +69,7 @@
 		<trainingDef>RMC_TrainingDef_ISC_Tech</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_SniperRifle</weapon>
-		<cost>15000</cost>
+		<cost>4000</cost>
 		<spawnTime>480000</spawnTime>
 	</RMC.RankDef>
 	
@@ -81,7 +81,7 @@
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>20000</cost>
+		<cost>5000</cost>
 		<spawnTime>900000</spawnTime>
 	</RMC.RankDef>
 	
@@ -93,7 +93,7 @@
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>25000</cost>
+		<cost>6000</cost>
 		<spawnTime>900000</spawnTime>
 	</RMC.RankDef>
 	

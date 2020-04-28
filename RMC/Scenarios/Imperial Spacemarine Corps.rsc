@@ -17,10 +17,8 @@
 	</meta>
 	<scenario>
 		<name>Imperial Spacemarine Corps</name>
-		<summary>Play as the Imperial Spacemarines on their endless quest to bring order to the rimwrolds.</summary>
-		<description>
-      The emperor of man in a fit of deranged pride dispatched thousands of imperial fleets to the edges of the galaxy, in order to "bring law and order to the rimworlds." These fleets still scour the farthest reaches of space even though their emperor and his empire is long dead. They call themselves Imperial Spacemarines, the emperor's chosen. But they are colloquially referred to as "the dead legions" by the inhabitants of of the rimworlds.
-    </description>
+		<summary>Play as the Imperial Spacemarines on their endless quest to bring order to the rimworlds.</summary>
+		<description>The emperor of man in a fit of deranged pride dispatched thousands of imperial fleets to the edges of the galaxy, in order to "bring law and order to the rimworlds." These fleets still scour the farthest reaches of space even though their emperor and his empire is long dead. They call themselves Imperial Spacemarines, the emperor's chosen. But they are colloquially referred to as "the dead legion" by the inhabitants of the rimworlds.</description>
 		<playerFaction>
 			<def>PlayerFaction</def>
 			<factionDef>RMC_FactionDef_ISC_Colony</factionDef>
