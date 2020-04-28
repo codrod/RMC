@@ -24,5 +24,20 @@
 			</li>
 		</soldiers>
 	</RMC.UnitDef>
+
+  <RMC.UnitDef>
+    <defName>RMC_UnitDef_RWM_Starting_Unit</defName>
+    <label>Small</label>
+    <soldiers>
+      <li>
+        <key>RMC_RankDef_RWM_Elite</key>
+        <value>1</value>
+      </li>
+      <li>
+        <key>RMC_RankDef_RWM_Gunner</key>
+        <value>2</value>
+      </li>
+    </soldiers>
+  </RMC.UnitDef>
 	
 </Defs>

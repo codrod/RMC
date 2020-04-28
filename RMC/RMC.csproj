@@ -106,8 +106,7 @@
     </Content>
     <Content Include="XML\Defs\TrainingDefs\TrainingDefs_RWM.xml" />
     <Content Include="XML\Defs\TrainingDefs\TrainingDefs_ISC.xml" />
-    <Content Include="XML\Defs\UnitDefs\UnitDefs_ISC.xml" />
-    <Content Include="XML\Defs\UnitDefs\UnitDefs_RWM.xml" />
+    <Content Include="XML\Defs\UnitDefs\UnitDefs.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="XML\Patches\RMC_Patches_WeaponTags.xml">
