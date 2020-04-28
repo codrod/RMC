@@ -14,14 +14,14 @@ namespace RMC
 {
     public class IncidentParms_Deploy : IncidentParms, IExposable
     {
-        public Dictionary<RankDef, int> soldiers = new Dictionary<RankDef, int>();
+        public UnitDef reinforcements = new UnitDef();
 
         public void ExposeData()
         {
             base.ExposeData();
             //List<RankDef> keys = soldiers.Keys.ToList();
             //List<int> values = soldiers.Values.ToList();
-            Scribe_Collections.Look(ref soldiers, "soldiers", LookMode.Def, LookMode.Value);//, ref keys, ref values);
+            Scribe_Deep.Look(ref reinforcements, "reinforcements");
         }
     }
 
@@ -34,7 +34,7 @@ namespace RMC
             ArmyDef armyDef = null;
             UnitDef reinforcements;
 
-            Log.Message("" + GenDate.DaysPassed + " "+parms.faction);
+            //Log.Message("" + GenDate.DaysPassed + " "+parms.faction);
 
             if (parms.faction == null)
             {
@@ -51,10 +51,7 @@ namespace RMC
                 if (GenDate.DaysPassed == 0)
                     reinforcements = armyDef.startingUnit;
                 else
-                {
-                    reinforcements = new UnitDef();
-                    reinforcements.soldiers = ((IncidentParms_Deploy)parms).soldiers;
-                }
+                    reinforcements = ((IncidentParms_Deploy)parms).reinforcements;
             }
             catch (InvalidCastException)
             {

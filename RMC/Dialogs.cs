@@ -97,7 +97,7 @@ namespace RMC
                     incidentParms.target = negotiator.Map;
                     incidentParms.faction = negotiator.Faction;
                     incidentParms.forced = true;
-                    incidentParms.soldiers = CreateUnit().soldiers;
+                    incidentParms.reinforcements = CreateUnit();
                     Find.Storyteller.incidentQueue.Add(DefDatabase<IncidentDef>.GetNamed("RMC_IncidentDef_Deploy"), arrivalTick, incidentParms, 240000);
 
                     this.Close(true);
