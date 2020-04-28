@@ -55,7 +55,7 @@ namespace RMC
             else
                 RCellFinder.TryFindRandomPawnEntryCell(out arrivalCell, map, 1.0f);
 
-            armyDef.SendToMap(armyDef.GenerateUnit(reinforcements).Cast<Thing>(), map, arrivalCell);
+            armyDef.SendToMap(reinforcements.GenerateUnit().Cast<Thing>(), map, arrivalCell);
 
             if(GenDate.DaysPassed > 0)
                 Find.LetterStack.ReceiveLetter(def.letterLabel, def.letterText, LetterDefOf.PositiveEvent, new TargetInfo(arrivalCell, map, false));

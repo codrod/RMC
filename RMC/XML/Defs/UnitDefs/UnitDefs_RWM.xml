@@ -5,21 +5,16 @@
 	<RMC.UnitDef>
 		<defName>RMC_UnitDef_RWM_Starting_Unit</defName>
 		<label>Small</label>
-		<soldierList>
+		<soldiers>
       <li>
         <key>RMC_RankDef_RWM_Elite</key>
-        <value>
-          <count>1</count>
-        </value>
+        <value>1</value>
       </li>
 			<li>
 				<key>RMC_RankDef_RWM_Gunner</key>
-				<value>
-					<min>2</min>
-					<max>3</max>
-				</value>
+				<value>2</value>
 			</li>
-		</soldierList>
+		</soldiers>
 	</RMC.UnitDef>
 	
 </Defs>

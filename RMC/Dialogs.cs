@@ -16,7 +16,9 @@ namespace RMC
         protected static readonly Vector2 OtherBottomButtonSize = new Vector2(160f, 40f);
         private Vector2 scrollPosition;
         ArmyDef army;
-        UnitDef reinforcements = new UnitDef();
+        RankDef[] ranks;
+        string[] editBuffers;
+        int[] counts;
 
         public override Vector2 InitialSize
         {
@@ -36,8 +38,11 @@ namespace RMC
             this.soundAppear = SoundDefOf.CommsWindow_Open;
             this.soundClose = SoundDefOf.CommsWindow_Close;
 
+            SetCounts();
+            ranks = new RankDef[army.rankList.Count];
+
             for (int i = 0; i < army.rankList.Count; i++)
-                reinforcements.Add(army.rankList[i]);
+                ranks[i] = army.rankList[i];
         }
 
         public override void DoWindowContents(Rect inRect)
@@ -66,7 +71,7 @@ namespace RMC
             Rect rect62 = new Rect(inRect.width - 143f, 58f, 150f, 30f);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(rect62, "-" + reinforcements.GetUnitCost().ToString() + " : ~" + reinforcements.GetUnitSpawnTime() / 60000 + " days");
+            Widgets.Label(rect62, "-" + GetUnitCost().ToString() + " : ~" + GetUnitSpawnTime() / 60000 + " days");
 
             Text.Anchor = TextAnchor.MiddleLeft;
             GUI.color = Color.white;
@@ -84,21 +89,21 @@ namespace RMC
             {
                 Action action = delegate
                 {
-                    MapUtilities.DestroyThingsInMap(negotiator.Map, ThingDef.Named("Silver"), (int)reinforcements.GetUnitCost());
+                    MapUtilities.DestroyThingsInMap(negotiator.Map, ThingDef.Named("Silver"), (int)GetUnitCost());
 
-                    int arrivalTick = Find.TickManager.TicksGame + reinforcements.GetUnitSpawnTime();
+                    int arrivalTick = Find.TickManager.TicksGame + GetUnitSpawnTime();
 
                     IncidentParms_Deploy incidentParms = new IncidentParms_Deploy();
                     incidentParms.target = negotiator.Map;
                     incidentParms.faction = negotiator.Faction;
                     incidentParms.forced = true;
-                    incidentParms.reinforcements = reinforcements;
+                    incidentParms.reinforcements = CreateUnit();
                     Find.Storyteller.incidentQueue.Add(DefDatabase<IncidentDef>.GetNamed("RMC_IncidentDef_Deploy"), arrivalTick, incidentParms, 240000);
 
                     this.Close(true);
                 };
 
-                if (negotiator.Map.resourceCounter.Silver >= reinforcements.GetUnitCost())
+                if (negotiator.Map.resourceCounter.Silver >= GetUnitCost())
                 {
                     action();
                 }
@@ -116,10 +121,7 @@ namespace RMC
             {
                 SoundDefOf.Tick_Low.PlayOneShotOnCamera(null);
 
-                reinforcements.soldierList.Clear();
-
-                for (int i = 0; i < army.rankList.Count; i++)
-                    reinforcements.Add(army.rankList[i]);
+                SetCounts();
             }
 
             Rect rect9 = new Rect(rect7.xMax + 10f, rect7.y, Dialog_Recruit.OtherBottomButtonSize.x, Dialog_Recruit.OtherBottomButtonSize.y);
@@ -143,12 +145,12 @@ namespace RMC
             float num3 = this.scrollPosition.y + mainRect.height;
             int i = 0;
 
-            foreach (RankDef rank in reinforcements.soldierList.Keys)
+            foreach (RankDef rank in ranks)
             {
                 if (num > num2 && num < num3)
                 {
                     Rect rect = new Rect(0f, num, viewRect.width, 30f);
-                    DrawTradeableRow(rect, i, rank, reinforcements.soldierList[rank]);
+                    DrawTradeableRow(rect, i, rank, ref counts[i]);
                 }
 
                 num += 30f;
@@ -158,7 +160,7 @@ namespace RMC
             Widgets.EndScrollView();
         }
 
-        public void DrawTradeableRow(Rect rect, int index, RankDef rank, RankCount rankCount)
+        public void DrawTradeableRow(Rect rect, int index, RankDef rank, ref int count)
         {
             if (index % 2 == 1)
             {
@@ -190,12 +192,50 @@ namespace RMC
             rect3.xMax -= 15f;
             rect3.xMin += 16f;
 
-            Widgets.TextFieldNumeric<int>(rect3, ref rankCount.count, ref rankCount.editBuffer, 0.0f, 99.0f);
+            Widgets.TextFieldNumeric<int>(rect3, ref count, ref editBuffers[index], 0.0f, 99.0f);
 
             num -= 240f;
             num -= 175f;
             GenUI.ResetLabelAlign();
             GUI.EndGroup();
+        }
+
+        public float GetUnitCost()
+        {
+            float cost = 0.0f;
+
+            for (int i = 0; i < ranks.Length; i++)
+                cost += ranks[i].cost * counts[i];
+
+            return cost;
+        }
+
+        public int GetUnitSpawnTime()
+        {
+            int spawnTime = 0;
+
+            for (int i = 0; i < ranks.Length; i++)
+                if (ranks[i].spawnTime * counts[i] > spawnTime)
+                    spawnTime = ranks[i].spawnTime * counts[i];
+
+            return spawnTime;
+        }
+
+        public void SetCounts()
+        {
+            editBuffers = new string[army.rankList.Count];
+            counts = new int[army.rankList.Count];
+        }
+
+        public UnitDef CreateUnit()
+        {
+            UnitDef unit = new UnitDef();
+
+            for (int i = 0; i < ranks.Length; i++)
+                if (counts[i] > 0)
+                    unit.soldiers.Add(ranks[i], counts[i]);
+
+            return unit;
         }
     }
 }
