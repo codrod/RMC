@@ -70,10 +70,11 @@ namespace RMC
         public List<Pawn> Spawn()
         {
             List<Pawn> pawns = new List<Pawn>();
+            SoldierGenerator soldierGenerator = new SoldierGenerator();
 
             foreach (KeyValuePair<RankDef, int> rankCount in soldiers)
                 for (int j = 0; j < rankCount.Value; j++)
-                    pawns.Add(SoldierGenerator.GenerateSoldier(rankCount.Key));
+                    pawns.Add(soldierGenerator.Generate(rankCount.Key));
 
             return pawns;
         }
