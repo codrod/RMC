@@ -16,7 +16,7 @@
 		<defName>RMC_BackstoryDef_RWM_Mercenary</defName>
 		<label>mercenary backstory</label>
 		<identifier>RMC_BackstoryDef_RWM_Mercenary</identifier>
-		<baseDesc>[PAWN_nameDef] ended up joining a band of rimworld mercenaries for reasons [PAWN_pronoun] he does not like to talk about.\n\n[PAWN_pronoun] has managed to survive long enough to develop a modest amount of skill and a fairly dubious moral character.</baseDesc>
+		<baseDesc>[PAWN_nameDef] ended up joining a band of rimworld mercenaries for reasons [PAWN_pronoun] does not like to talk about.\n\n[PAWN_pronoun] has managed to survive long enough to develop a modest amount of skill and a fairly dubious moral character.</baseDesc>
 		<title>Mercenary</title>
 		<titleShort>Merc</titleShort>
 	</RMC.BackstoryDef>
