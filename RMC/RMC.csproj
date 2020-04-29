@@ -123,4 +123,8 @@
 xcopy /yei "$(ProjectDir)About"  "$(OutDir)..\..\About"
 xcopy /yei "$(ProjectDir)Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"</PostBuildEvent>
   </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>del /s /q  "$(OutDir).."
+del /s /q  "$(OutDir)..\..\About"</PreBuildEvent>
+  </PropertyGroup>
 </Project>
