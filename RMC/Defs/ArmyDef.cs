@@ -27,27 +27,12 @@ namespace RMC
 
         public static ArmyDef GetFactionArmy(Faction faction)
         {
-            ArmyDef army = null;
-
-            foreach (ArmyDef curArmy in DefDatabase<ArmyDef>.AllDefs)
-            {
-                if (faction.def.defName == curArmy.factionDef.defName)
-                {
-                    army = curArmy;
-                    break;
-                }
-            }
-
-            return army;
+            return DefDatabase<ArmyDef>.AllDefs.Where(army => army.factionDef.defName == faction.def.defName).First();
         }
 
         public RankDef GetPawnRank(Pawn pawn)
         {
-            foreach (RankDef rank in rankList)
-                if (pawn.kindDef.defName == rank.pawnKindDef.defName)
-                    return rank;
-
-            return null;
+            return rankList.Where(rank => rank.pawnKindDef.defName == pawn.kindDef.defName).FirstOrDefault(null);
         }
 
         public UnitDef CreateUnitOfPawns(IEnumerable<Pawn> pawns)
