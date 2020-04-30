@@ -10,6 +10,13 @@ using System.Diagnostics;
 using System.Linq;
 using HarmonyLib;
 
+/*
+ * Notes:
+ * 1) The pawn generator class only takes Factions not FactionDefs. Which casues a problem if you try mix armies since the faction def in the visting armies pawn kind def does not exist. will
+ * probably have to something drastic to fix this.
+ * 2) Generated backstories may contradict the forced (disallowed) traits/work tags if the backstories are not forced?
+ */
+
 namespace RMC
 {
     [StaticConstructorOnStartup]

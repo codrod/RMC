@@ -7,6 +7,7 @@ using Verse;
 
 namespace RMC
 {
+    //Custom def for specifiy backstories because such a def does not exist in RimWorld Core
     public class BackstoryDef : Def
     {
         public string identifier = null;
@@ -59,6 +60,8 @@ namespace RMC
         }
     }
 
+    //Need to use BackstoryTrait instead of TraitEntry or else the mod will
+    //fail during initialization because the TraitDefs have not been loaded yet
     public class BackstoryTrait
     {
         public TraitDef traitDef = null;

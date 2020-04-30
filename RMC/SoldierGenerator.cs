@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Verse;
 using RimWorld;
+using System.Linq;
 
 namespace RMC
 {
@@ -10,14 +11,24 @@ namespace RMC
         Pawn pawn;
         TraitDef newTraitDef;
         Trait newTrait;
+        Backstory childhood;
+        Backstory adulthood;
+        RankDef rank;
 
-        public Pawn Generate(RankDef rank)
+        public Pawn Generate(RankDef soldierRank)
         {
-            //also consider using the disallowed/allowed traits options on the pawn generator
-            pawn = Verse.PawnGenerator.GeneratePawn(new PawnGenerationRequest(rank.pawnKindDef, Find.World.factionManager.FirstFactionOfDef(rank.pawnKindDef.defaultFactionType), PawnGenerationContext.NonPlayer, -1, false, false, false, false, true, true, 1f, true, true, true, false, false, false, false, false, 0.0f, null, 0.0f, null, null, null, null));
+            this.rank = soldierRank;
+
+            if(rank.childhood != null)
+                BackstoryDatabase.TryGetWithIdentifier(rank.childhood.identifier, out childhood);
+
+            if(rank.adulthood != null)
+                BackstoryDatabase.TryGetWithIdentifier(rank.adulthood.identifier, out adulthood);
+
+            pawn = Verse.PawnGenerator.GeneratePawn(GetGenerationRequest());
 
             ForceFaction();
-            ForceBackstory(rank);
+            ForceBackstory();
 
             if (rank.trainingDef != null) rank.trainingDef.Train(pawn);
 
@@ -38,31 +49,41 @@ namespace RMC
             return pawn;
         }
 
+        PawnGenerationRequest GetGenerationRequest()
+        {
+            PawnGenerationRequest pawnGenerationRequest = new PawnGenerationRequest(rank.pawnKindDef);
+
+            //This wont work if no faction exists with that factiondef
+            pawnGenerationRequest.Faction = Find.World.factionManager.FirstFactionOfDef(rank.pawnKindDef.defaultFactionType);
+
+            return pawnGenerationRequest;
+        }
+
         void ForceFaction()
         {
             (pawn as Thing).GetType().GetField("factionInt", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(pawn, Find.World.factionManager.OfPlayer);
         }
 
-        void ForceBackstory(RankDef rank)
+        void ForceBackstory()
         {
-            if (rank.childhood != null)
+            if (childhood != null)
             {
-                BackstoryDatabase.TryGetWithIdentifier(rank.childhood.identifier, out pawn.story.childhood);
+                pawn.story.childhood = childhood;
 
                 if (rank.childhood.bodyTypeDef != null)
                     pawn.story.bodyType = rank.childhood.bodyTypeDef;
             }
 
-            if (rank.adulthood != null)
+            if (adulthood != null)
             {
-                BackstoryDatabase.TryGetWithIdentifier(rank.adulthood.identifier, out pawn.story.adulthood);
+                pawn.story.adulthood = adulthood;
 
                 if (rank.adulthood.bodyTypeDef != null)
                     pawn.story.bodyType = rank.adulthood.bodyTypeDef;
             }
 
-            if (rank.childhood != null || rank.adulthood != null)
-                ForceTraits(rank);
+            if (childhood != null || adulthood != null)
+               ForceTraits();
 
             if (rank.title != null)
             {
@@ -86,81 +107,60 @@ namespace RMC
             return;
         }
 
-        void ForceTraits(RankDef rank)
+        void ForceTraits()
         {
+            //Clear all traits
             pawn.story.traits.allTraits = new List<Trait>();
 
-            if(pawn.story.childhood.forcedTraits != null)
-                foreach (TraitEntry traitEntry in pawn.story.childhood.forcedTraits)
-                    pawn.story.traits.GainTrait(new Trait(traitEntry.def, traitEntry.degree));
+            if (childhood != null && childhood.forcedTraits != null)
+                childhood.forcedTraits.ForEach(entry => pawn.story.traits.GainTrait(new Trait(entry.def, entry.degree)));
 
-            if (pawn.story.adulthood != null && pawn.story.adulthood.forcedTraits != null)
-                foreach (TraitEntry traitEntry in pawn.story.adulthood.forcedTraits)
-                    pawn.story.traits.GainTrait(new Trait(traitEntry.def, traitEntry.degree));
+            if (adulthood != null && adulthood.forcedTraits != null)
+                adulthood.forcedTraits.ForEach(entry => pawn.story.traits.GainTrait(new Trait(entry.def, entry.degree)));
 
-            ForceRandomTraits(rank);
-
-            /* Without this Pawns can still do disabled work */
+            //Add more random traits if there is room for more traits
+            ForceRandomTraits();
+        
+            //Without this Pawns can still do disabled work
             pawn.workSettings.EnableAndInitialize();
 
-            /* Removes passion sybmols for disabled skills in the Bio tab */
-            foreach (SkillRecord skill in pawn.skills.skills)
-            {
-                if (skill.TotallyDisabled)
-                {
-                    skill.Level = 0;
-                    skill.passion = Passion.None;
-                }
-            }
+            //Removes passion sybmols for disabled skills in the Bio tab
+            pawn.skills.skills.Where(skill => skill.TotallyDisabled).ToList().ForEach(skill => { skill.Level = 0; skill.passion = Passion.None; });
 
             return;
         }
 
-        void ForceRandomTraits(RankDef rank)
+        void ForceRandomTraits()
         {
-            int traitCount = 0;
+            int moreTraitsRequired = Rand.RangeInclusive(1, 3) - pawn.story.traits.allTraits.Count;
 
-            traitCount = Rand.RangeInclusive(1, 3) - pawn.story.traits.allTraits.Count;
-
-            while (traitCount > 0)
+            while (moreTraitsRequired > 0)
             {
                 newTraitDef = DefDatabase<TraitDef>.AllDefsListForReading.RandomElementByWeight((TraitDef tr) => tr.GetGenderSpecificCommonality(pawn.gender));
                 newTrait = new Trait(newTraitDef, Verse.PawnGenerator.RandomTraitDegree(newTraitDef), true);
 
-                if (TraitIsValid(rank))
+                if (TraitIsValid())
                 {
                     pawn.story.traits.GainTrait(newTrait);
-                    traitCount--;
+                    moreTraitsRequired--;
                 }
             }
         }
 
-        bool TraitIsValid(RankDef rank)
+        bool TraitIsValid()
         {
-            if (WorkTagsConflict())
-                return false;
-
-            if (TraitIsDisallowed())
-                return false;
-
-            if (TraitConflictsWithExistingTraits())
+            if (WorkTagsConflict(childhood) || WorkTagsConflict(adulthood) || TraitIsDisallowed(childhood) || TraitIsDisallowed(adulthood) || TraitConflictsWithExistingTraits())
                 return false;
 
             return true;
         }
 
-        bool WorkTagsConflict()
+        bool WorkTagsConflict(Backstory backstory)
         {
             if (
-                (pawn.story.childhood.requiredWorkTags & newTrait.def.disabledWorkTags) != 0 ||
-                (pawn.story.childhood.workDisables & newTrait.def.requiredWorkTags) != 0
-            )
-                return true;
-
-            if (
-                pawn.story.adulthood != null && (
-                    (pawn.story.adulthood.requiredWorkTags & newTrait.def.disabledWorkTags) != 0 ||
-                    (pawn.story.adulthood.workDisables & newTrait.def.requiredWorkTags) != 0
+                backstory != null && (
+                    (backstory.requiredWorkTags & newTrait.def.disabledWorkTags) != 0 ||
+                    (backstory.workDisables & newTrait.def.requiredWorkTags) != 0
                 )
             )
                 return true;
@@ -168,29 +168,10 @@ namespace RMC
             return false;
         }
 
-        bool TraitIsDisallowed()
+        bool TraitIsDisallowed(Backstory backstory)
         {
-            if (pawn.story.childhood.disallowedTraits != null)
-            {
-                foreach (TraitEntry traitEntry in pawn.story.childhood.disallowedTraits)
-                {
-                    if (traitEntry.def.defName == newTraitDef.defName)
-                    {
-                        return true;
-                    }
-                }
-            }
-
-            if (pawn.story.adulthood != null && pawn.story.adulthood.disallowedTraits != null)
-            {
-                foreach (TraitEntry traitEntry in pawn.story.adulthood.disallowedTraits)
-                {
-                    if (traitEntry.def.defName == newTraitDef.defName)
-                    {
-                        return true;
-                    }
-                }
-            }
+            if (backstory != null && backstory.disallowedTraits != null)
+                return backstory.disallowedTraits.Any(entry => entry.def.defName == newTraitDef.defName);
 
             return false;
         }
@@ -200,20 +181,10 @@ namespace RMC
             foreach (Trait curTrait in pawn.story.traits.allTraits)
             {
                 if (pawn.story.traits.HasTrait(newTrait.def) || (curTrait.def.requiredWorkTags & newTrait.def.disabledWorkTags) != 0)
-                {
                     return true;
-                }
 
-                if (curTrait.def.conflictingTraits != null)
-                {
-                    foreach (TraitDef conflictingTrait in curTrait.def.conflictingTraits)
-                    {
-                        if (conflictingTrait.defName == newTrait.def.defName)
-                        {
-                            return true;
-                        }
-                    }
-                }
+                if (curTrait.def.conflictingTraits != null && curTrait.def.conflictingTraits.Any(trait => trait.defName == newTrait.def.defName))
+                    return false;
             }
 
             return false;
