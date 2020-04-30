@@ -27,23 +27,12 @@ namespace RMC
 
         public float GetUnitCost()
         {
-            float totalCost = 0f;
-
-            foreach (RankDef rank in soldiers.Keys)
-                totalCost += soldiers[rank] * rank.cost;
-
-            return totalCost;
+            return soldiers.Keys.Sum(rank => rank.cost);
         }
 
         public int GetSpawnTime()
         {
-            int spawnTime = 0;
-
-            foreach (RankDef rank in soldiers.Keys)
-                if (rank.spawnTime * soldiers[rank] > spawnTime)
-                    spawnTime = rank.spawnTime * soldiers[rank];
-
-            return spawnTime;
+            return soldiers.Keys.Max(rank => rank.spawnTime * soldiers[rank]);
         }
 
         public static UnitDef CreateUnitFromArrays(RankDef[] ranks, int[] counts)
@@ -59,12 +48,7 @@ namespace RMC
 
         public int GetSize()
         {
-            int size = 0;
-
-            foreach (KeyValuePair<RankDef, int> rankCount in soldiers)
-                size += rankCount.Value;
-
-            return size;
+            return soldiers.Values.Sum();
         }
 
         public List<Pawn> Spawn()
