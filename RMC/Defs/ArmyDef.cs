@@ -15,10 +15,7 @@ namespace RMC
         public List<RankDef> rankList = new List<RankDef>();
         public UnitDef startingUnit = new UnitDef();
 
-        public ArmyDef()
-        {
-
-        }
+        public ArmyDef() { }
 
         public static ArmyDef Named(string defName)
         {

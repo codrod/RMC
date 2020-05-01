@@ -32,7 +32,7 @@ namespace RMC
 
         public int GetSpawnTime()
         {
-            return soldiers.Keys.Max(rank => rank.spawnTime * soldiers[rank]);
+            return soldiers.Keys.Count > 0 ? soldiers.Keys.Max(rank => rank.spawnTime * soldiers[rank]) : 0;
         }
 
         public static UnitDef CreateUnitFromArrays(RankDef[] ranks, int[] counts)
@@ -54,11 +54,10 @@ namespace RMC
         public List<Pawn> Spawn()
         {
             List<Pawn> pawns = new List<Pawn>();
-            SoldierGenerator soldierGenerator = new SoldierGenerator();
 
-            foreach (KeyValuePair<RankDef, int> rankCount in soldiers)
-                for (int j = 0; j < rankCount.Value; j++)
-                    pawns.Add(soldierGenerator.Generate(rankCount.Key));
+            foreach (KeyValuePair<RankDef, int> rank in soldiers)
+                for (int j = 0; j < rank.Value; j++)
+                    pawns.Add(new SoldierGenerator(rank.Key).Generate());
 
             return pawns;
         }

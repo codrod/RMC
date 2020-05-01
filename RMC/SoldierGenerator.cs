@@ -15,16 +15,19 @@ namespace RMC
         Backstory adulthood;
         RankDef rank;
 
-        public Pawn Generate(RankDef soldierRank)
+        public SoldierGenerator(RankDef rank)
         {
-            this.rank = soldierRank;
+            this.rank = rank;
 
-            if(rank.childhood != null)
+            if (rank.childhood != null)
                 BackstoryDatabase.TryGetWithIdentifier(rank.childhood.identifier, out childhood);
 
-            if(rank.adulthood != null)
+            if (rank.adulthood != null)
                 BackstoryDatabase.TryGetWithIdentifier(rank.adulthood.identifier, out adulthood);
+        }
 
+        public Pawn Generate()
+        {
             pawn = Verse.PawnGenerator.GeneratePawn(GetGenerationRequest());
 
             ForceFaction();
