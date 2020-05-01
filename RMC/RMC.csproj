@@ -68,60 +68,60 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Defs\ArmyDef.cs" />
-    <Compile Include="Dialogs.cs" />
-    <Compile Include="Defs\BackstoryDef.cs" />
-    <Compile Include="Defs\EquipmentDef.cs" />
-    <Compile Include="HarmonyPatches.cs" />
-    <Compile Include="IncidentWorkers.cs" />
-    <Compile Include="JobDrivers.cs" />
-    <Compile Include="MapUtilities.cs" />
-    <Compile Include="SoldierGenerator.cs" />
+    <Compile Include="Source\Defs\ArmyDef.cs" />
+    <Compile Include="Source\Dialogs.cs" />
+    <Compile Include="Source\Defs\BackstoryDef.cs" />
+    <Compile Include="Source\Defs\EquipmentDef.cs" />
+    <Compile Include="Source\HarmonyPatches.cs" />
+    <Compile Include="Source\IncidentWorkers.cs" />
+    <Compile Include="Source\JobDrivers.cs" />
+    <Compile Include="Source\MapUtilities.cs" />
+    <Compile Include="Source\SoldierGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Defs\RankDef.cs" />
-    <Compile Include="ThingClasses.cs" />
-    <Compile Include="Defs\TrainingDef.cs" />
-    <Compile Include="Defs\UnitDef.cs" />
+    <Compile Include="Source\Defs\RankDef.cs" />
+    <Compile Include="Source\ThingClasses.cs" />
+    <Compile Include="Source\Defs\TrainingDef.cs" />
+    <Compile Include="Source\Defs\UnitDef.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About\About.xml" />
-    <Content Include="XML\Defs\ArmyDefs\ArmyDefs.xml" />
-    <Content Include="XML\Defs\BackstoryDefs\BackstoryDefs_RWM.xml" />
-    <Content Include="XML\Defs\BackstoryDefs\BackstoryDefs_ISC.xml" />
-    <Content Include="XML\Defs\EquipmentDefs\EquipmentDefs_ISC.xml" />
-    <Content Include="XML\Defs\FactionDefs\FactionDefs_ISC.xml" />
-    <Content Include="XML\Defs\FactionDefs\FactionDefs_RWM.xml" />
-    <Content Include="XML\Defs\IncidentDefs\IncidentDefs.xml" />
-    <None Include="XML\Defs\IncidentDefs\IncidentDefs_ISC.xml.ignore" />
-    <None Include="XML\Defs\IncidentDefs\IncidentDefs_RWM.xml.ignore" />
-    <Content Include="XML\Defs\JobDefs\JobDefs.xml" />
-    <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_ISC.xml" />
-    <Content Include="XML\Defs\PawnKindDefs\PawnKindDefs_RWM.xml">
+    <Content Include="Assets\About\About.xml" />
+    <Content Include="Assets\XML\Defs\ArmyDefs\ArmyDefs.xml" />
+    <Content Include="Assets\XML\Defs\BackstoryDefs\BackstoryDefs_RWM.xml" />
+    <Content Include="Assets\XML\Defs\BackstoryDefs\BackstoryDefs_ISC.xml" />
+    <Content Include="Assets\XML\Defs\EquipmentDefs\EquipmentDefs_ISC.xml" />
+    <Content Include="Assets\XML\Defs\FactionDefs\FactionDefs_ISC.xml" />
+    <Content Include="Assets\XML\Defs\FactionDefs\FactionDefs_RWM.xml" />
+    <Content Include="Assets\XML\Defs\IncidentDefs\IncidentDefs.xml" />
+    <None Include="Assets\XML\Defs\IncidentDefs\IncidentDefs_ISC.xml.ignore" />
+    <None Include="Assets\XML\Defs\IncidentDefs\IncidentDefs_RWM.xml.ignore" />
+    <Content Include="Assets\XML\Defs\JobDefs\JobDefs.xml" />
+    <Content Include="Assets\XML\Defs\PawnKindDefs\PawnKindDefs_ISC.xml" />
+    <Content Include="Assets\XML\Defs\PawnKindDefs\PawnKindDefs_RWM.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="XML\Defs\RankDefs\RankDefs_ISC.xml" />
-    <Content Include="XML\Defs\RankDefs\RankDefs_RWM.xml" />
-    <Content Include="XML\Defs\ThingDefs\ThingDef_Buildings.xml">
+    <Content Include="Assets\XML\Defs\RankDefs\RankDefs_ISC.xml" />
+    <Content Include="Assets\XML\Defs\RankDefs\RankDefs_RWM.xml" />
+    <Content Include="Assets\XML\Defs\ThingDefs\ThingDef_Buildings.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="XML\Defs\TrainingDefs\TrainingDefs_RWM.xml" />
-    <Content Include="XML\Defs\TrainingDefs\TrainingDefs_ISC.xml" />
-    <Content Include="XML\Defs\UnitDefs\UnitDefs.xml" />
+    <Content Include="Assets\XML\Defs\TrainingDefs\TrainingDefs_RWM.xml" />
+    <Content Include="Assets\XML\Defs\TrainingDefs\TrainingDefs_ISC.xml" />
+    <Content Include="Assets\XML\Defs\UnitDefs\UnitDefs.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="XML\Patches\RMC_Patches_WeaponTags.xml">
+    <Content Include="Assets\XML\Patches\RMC_Patches_WeaponTags.xml">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scenarios\Imperial Spacemarine Corps.rsc" />
-    <None Include="Scenarios\Rimworld Mercenaries.rsc" />
+    <None Include="Assets\Scenarios\Imperial Spacemarine Corps.rsc" />
+    <None Include="Assets\Scenarios\Rimworld Mercenaries.rsc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /yei "$(ProjectDir)XML"  "$(OutDir).."
-xcopy /yei "$(ProjectDir)About"  "$(OutDir)..\..\About"
-xcopy /yei "$(ProjectDir)Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"</PostBuildEvent>
+    <PostBuildEvent>xcopy /yei "$(ProjectDir)\Assets\XML"  "$(OutDir).."
+xcopy /yei "$(ProjectDir)\Assets\About"  "$(OutDir)..\..\About"
+xcopy /yei "$(ProjectDir)\Assets\Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>del /s /q  "$(OutDir)..\.."</PreBuildEvent>
