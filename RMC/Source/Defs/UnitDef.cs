@@ -27,7 +27,7 @@ namespace RMC
 
         public float GetUnitCost()
         {
-            return soldiers.Keys.Sum(rank => rank.cost);
+            return soldiers.Sum(rankCount => rankCount.Key.cost * rankCount.Value);
         }
 
         public int GetSpawnTime()
