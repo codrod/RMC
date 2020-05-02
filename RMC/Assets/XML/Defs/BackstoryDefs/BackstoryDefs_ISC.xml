@@ -15,6 +15,7 @@
 	</RMC.BackstoryDef>
 	
 	<RMC.BackstoryDef Abstract="True" Name="RMC_BackstoryDef_ISC_Base">
+    <isNewBackstory>true</isNewBackstory>
 		<bodyTypeDef>Hulk</bodyTypeDef>
 		<disallowedTraits>
 			<li>Brawler</li>

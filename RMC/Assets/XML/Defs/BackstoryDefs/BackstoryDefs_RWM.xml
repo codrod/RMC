@@ -3,6 +3,7 @@
 <Defs>
 
 	<RMC.BackstoryDef Abstract="True" Name="RMC_BackstoryDef_RWM_Base">
+    <isNewBackstory>true</isNewBackstory>
 		<bodyTypeDef>Hulk</bodyTypeDef>
 		<disallowedTraits>
 			<li>Pyromaniac</li>

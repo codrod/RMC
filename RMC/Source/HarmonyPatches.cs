@@ -25,13 +25,12 @@ namespace RMC
         static Main()
         {
             Log.Message("RMC: Started");
-            Backstory backstory = null;
 
             var harmony = new Harmony("com.github.codrod.RMC");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             foreach(BackstoryDef backstoryDef in DefDatabase<BackstoryDef>.AllDefs)
-                if(!BackstoryDatabase.TryGetWithIdentifier(backstoryDef.identifier, out backstory))
+                if(backstoryDef.isNewBackstory)
                     BackstoryDatabase.AddBackstory(backstoryDef.NewBackstory());
 
             Log.Message("RMC: Loaded");

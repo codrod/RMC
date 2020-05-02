@@ -14,6 +14,7 @@ namespace RMC
         public string baseDesc = null;
         public string title = null;
         public string titleShort = null;
+        public bool isNewBackstory = false;
 
         public BodyTypeDef bodyTypeDef = null;
 
