@@ -11,14 +11,20 @@ namespace RMC
 {
     public class Dialog_Recruit : Window
     {
-        protected Pawn negotiator;
-        protected static readonly Vector2 AcceptButtonSize = new Vector2(160f, 40f);
-        protected static readonly Vector2 OtherBottomButtonSize = new Vector2(160f, 40f);
-        private Vector2 scrollPosition;
+        Pawn negotiator;
+        static Vector2 buttonSize = new Vector2(160f, 40f);
+        Vector2 scrollPosition;
         ArmyDef army;
         RankDef[] ranks;
         string[] editBuffers;
         int[] counts;
+
+        int ticksInADay = 60000;
+        float headerRectHeight = 58f;
+        float rowHeight = 30f;
+        float rightMargin = 14f;
+        float rowWidth = 0f;
+        float buttonSpacer = 10f;
 
         public override Vector2 InitialSize
         {
@@ -45,172 +51,161 @@ namespace RMC
                 ranks[i] = army.rankList[i];
         }
 
-        public override void DoWindowContents(Rect inRect)
+        public override void DoWindowContents(Rect window)
         {
-            GUI.BeginGroup(inRect);
-            inRect = inRect.AtZero();
+            float y = 0f;
+            rowWidth = window.width - rightMargin;
 
-            Rect position = new Rect(0f, 0f, inRect.width, 58f);
-            GUI.BeginGroup(position);
+            GUI.BeginGroup(window);
+
+            window = window.AtZero();
+            Rect headerRect = new Rect(0f, 0f, rowWidth, headerRectHeight);
+
+            GUI.BeginGroup(headerRect);
+
+            Rect factionRect = new Rect(0f, 0f, rowWidth, headerRectHeight / 2f);
             Text.Font = GameFont.Medium;
-
-            Rect rect = new Rect(0f, 0f, position.width / 2f, position.height);
             Text.Anchor = TextAnchor.UpperLeft;
-            Widgets.Label(rect, Faction.OfPlayer.Name.Truncate(rect.width, null));
+            Widgets.Label(factionRect, Faction.OfPlayer.Name.Truncate(factionRect.width, null));
 
+            y += headerRectHeight / 2f;
+            Rect negotiatiorRect = new Rect(0f, y, rowWidth, headerRectHeight / 2f);
             Text.Font = GameFont.Small;
             Text.Anchor = TextAnchor.UpperLeft;
-            Rect rect3 = new Rect(0f, 27f, position.width / 2f, position.height / 2f);
-            Widgets.Label(rect3, "Negotiator".Translate() + ": " + negotiator.LabelShort);
+            Widgets.Label(negotiatiorRect, negotiator.LabelShort);
 
             GUI.EndGroup();
 
-            Rect rect6 = new Rect(0f, 58f, 116f, 30f);
-            Widgets.Label(rect6, negotiator.Map.resourceCounter.Silver.ToString());
+            y += headerRectHeight / 2f;
+            Rect silverRect = new Rect(0f, y, rowWidth / 2f, rowHeight);
+            Widgets.Label(silverRect, negotiator.Map.resourceCounter.Silver.ToString());
 
-            Rect rect62 = new Rect(inRect.width - 143f, 58f, 150f, 30f);
+            Rect costRect = new Rect(window.width / 2f, y, rowWidth / 2f, rowHeight);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(rect62, "-" + GetUnitCost().ToString() + " : ~" + GetUnitSpawnTime() / 60000 + " days");
+            Widgets.Label(costRect, "-" + GetUnitCost().ToString() + " : ~" + GetUnitSpawnTime() / ticksInADay + " days");
 
+            y += rowHeight;
             Text.Anchor = TextAnchor.MiddleLeft;
             GUI.color = Color.white;
+            Widgets.DrawLineHorizontal(0f, y, rowWidth);
 
-            float num3 = inRect.width - 16f;
-            Widgets.DrawLineHorizontal(0f, 87f, num3);
-            float num2 = 30f;
+            Rect mainRect = new Rect(0f, y, rowWidth, window.height - y);
+            FillMainRect(mainRect);
 
-            Rect mainRect = new Rect(0f, 58f + num2, inRect.width, inRect.height - 58f - 38f - num2 - 20f);
+            Rect acceptButton = new Rect(window.width / 2f - buttonSize.x / 2f, window.height - y, buttonSize.x, buttonSize.y);
+            if (Widgets.ButtonText(acceptButton, "AcceptButton".Translate(), true, false, true))
+                AcceptAction();
 
-            this.FillMainRect(mainRect);
+            Rect resetButton = new Rect(acceptButton.x - 10f - buttonSize.x, acceptButton.y, buttonSize.x, buttonSize.y);
+            if (Widgets.ButtonText(resetButton, "ResetButton".Translate(), true, false, true))
+                ResetAction();
 
-            Rect rect7 = new Rect(inRect.width / 2f - Dialog_Recruit.AcceptButtonSize.x / 2f, inRect.height - 55f, Dialog_Recruit.AcceptButtonSize.x, Dialog_Recruit.AcceptButtonSize.y);
-            if (Widgets.ButtonText(rect7, "AcceptButton".Translate(), true, false, true))
-            {
-                Action action = delegate
-                {
-                    MapUtilities.DestroyThingsInMap(negotiator.Map, ThingDef.Named("Silver"), (int)GetUnitCost());
-
-                    int arrivalTick = Find.TickManager.TicksGame + GetUnitSpawnTime();
-
-                    IncidentParms_Deploy incidentParms = new IncidentParms_Deploy();
-                    incidentParms.target = negotiator.Map;
-                    incidentParms.faction = negotiator.Faction;
-                    incidentParms.forced = true;
-                    incidentParms.reinforcements = UnitDef.CreateUnitFromArrays(ranks, counts);
-                    Find.Storyteller.incidentQueue.Add(DefDatabase<IncidentDef>.GetNamed("RMC_IncidentDef_Deploy"), arrivalTick, incidentParms, 240000);
-
-                    this.Close(true);
-                };
-
-                if (negotiator.Map.resourceCounter.Silver >= GetUnitCost())
-                {
-                    action();
-                }
-                else
-                {
-                    SoundDefOf.ClickReject.PlayOneShotOnCamera(null);
-                    Messages.Message("MessageColonyCannotAfford".Translate(), MessageTypeDefOf.RejectInput, false);
-                }
-
-                Event.current.Use();
-            }
-
-            Rect rect8 = new Rect(rect7.x - 10f - Dialog_Recruit.OtherBottomButtonSize.x, rect7.y, Dialog_Recruit.OtherBottomButtonSize.x, Dialog_Recruit.OtherBottomButtonSize.y);
-            if (Widgets.ButtonText(rect8, "ResetButton".Translate(), true, false, true))
-            {
-                SoundDefOf.Tick_Low.PlayOneShotOnCamera(null);
-
-                SetCounts();
-            }
-
-            Rect rect9 = new Rect(rect7.xMax + 10f, rect7.y, Dialog_Recruit.OtherBottomButtonSize.x, Dialog_Recruit.OtherBottomButtonSize.y);
-            if (Widgets.ButtonText(rect9, "CancelButton".Translate(), true, false, true))
-            {
-                this.Close(true);
-                Event.current.Use();
-            }
+            Rect cancelButton = new Rect(acceptButton.xMax + 10f, acceptButton.y, buttonSize.x, buttonSize.y);
+            if (Widgets.ButtonText(cancelButton, "CancelButton".Translate(), true, false, true))
+                CancelAction();
 
             GUI.EndGroup();
         }
 
-        private void FillMainRect(Rect mainRect)
+        void FillMainRect(Rect mainRect)
         {
             Text.Font = GameFont.Small;
-            float height = 6f + army.rankList.Count * 30f;
-            Rect viewRect = new Rect(0f, 0f, mainRect.width - 16f, height);
+            float y = 6f;
+            float height = y + army.rankList.Count * rowHeight;
+            Rect viewRect = new Rect(0f, 0f, mainRect.width, height);
             Widgets.BeginScrollView(mainRect, ref this.scrollPosition, viewRect, true);
-            float num = 6f;
-            float num2 = this.scrollPosition.y - 30f;
-            float num3 = this.scrollPosition.y + mainRect.height;
-            int i = 0;
+            float minY = this.scrollPosition.y - rowHeight;
+            float maxY = this.scrollPosition.y + mainRect.height;
 
-            foreach (RankDef rank in ranks)
+            for (int i = 0; i < ranks.Length; i++)
             {
-                if (num > num2 && num < num3)
+                if (y > minY && y < maxY)
                 {
-                    Rect rect = new Rect(0f, num, viewRect.width, 30f);
-                    DrawTradeableRow(rect, i, rank, ref counts[i]);
+                    Rect row = new Rect(0f, y, viewRect.width, rowHeight);
+                    DrawTradeableRow(row, i);
                 }
 
-                num += 30f;
-                i++;
+                y += rowHeight;
             }
 
             Widgets.EndScrollView();
         }
 
-        public void DrawTradeableRow(Rect rect, int index, RankDef rank, ref int count)
+        void DrawTradeableRow(Rect row, int index)
         {
-            if (index % 2 == 1)
-            {
-                Widgets.DrawLightHighlight(rect);
-            }
             Text.Font = GameFont.Small;
-            GUI.BeginGroup(rect);
+            if (index % 2 == 1)  Widgets.DrawLightHighlight(row);
 
-            float num = rect.width;
+            GUI.BeginGroup(row);
 
-            Rect rect2 = new Rect(0f, 0f, 150f, rect.height);
-            if (Mouse.IsOver(rect2))
-            {
-                Widgets.DrawHighlight(rect2);
-            }
+            Rect rankRect = new Rect(0f, 0f, row.width / 2f, row.height);
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(rankRect, ranks[index].label);
+            if (Mouse.IsOver(rankRect)) Widgets.DrawHighlight(rankRect);
 
-            Rect rect3 = new Rect(num - 75f, 0f, 75f, rect.height);
-            rect3.xMin += 5f;
-            rect3.xMax -= 5f;
-            Widgets.Label(rect2, rank.label);
+            Rect countRow = new Rect(row.width - 30f, 0f, 30f, row.height);
+            Widgets.TextFieldNumeric<int>(countRow, ref counts[index], ref editBuffers[index], 0.0f, 99.0f);
 
-            Rect rect4 = new Rect(150f, 0f, 75f, rect.height);
-            Widgets.Label(rect4, GenText.ToStringMoney(rank.cost));
-
-            num -= 175f;
-            Rect rect5 = new Rect(num - 240f, 0f, 240f, rect.height);
-
-            Rect rect6 = rect5.ContractedBy(2f);
-            rect3.xMax -= 15f;
-            rect3.xMin += 16f;
-
-            Widgets.TextFieldNumeric<int>(rect3, ref count, ref editBuffers[index], 0.0f, 99.0f);
-
-            num -= 240f;
-            num -= 175f;
-            GenUI.ResetLabelAlign();
             GUI.EndGroup();
+
+            GenUI.ResetLabelAlign();
         }
 
-        public float GetUnitCost()
+        void AcceptAction()
+        {
+            Action action = delegate
+            {
+                MapUtilities.DestroyThingsInMap(negotiator.Map, ThingDef.Named("Silver"), (int)GetUnitCost());
+
+                IncidentParms_Deploy incidentParms = new IncidentParms_Deploy();
+                incidentParms.target = negotiator.Map;
+                incidentParms.faction = negotiator.Faction;
+                incidentParms.forced = true;
+                incidentParms.reinforcements = UnitDef.CreateUnitFromArrays(ranks, counts);
+
+                Find.Storyteller.incidentQueue.Add(DefDatabase<IncidentDef>.GetNamed("RMC_IncidentDef_Deploy"), Find.TickManager.TicksGame + GetUnitSpawnTime(), incidentParms, 240000);
+
+                this.Close(true);
+            };
+
+            if (negotiator.Map.resourceCounter.Silver >= GetUnitCost())
+            {
+                action();
+            }
+            else
+            {
+                SoundDefOf.ClickReject.PlayOneShotOnCamera(null);
+                Messages.Message("MessageColonyCannotAfford".Translate(), MessageTypeDefOf.RejectInput, false);
+            }
+
+            Event.current.Use();
+        }
+
+        void ResetAction()
+        {
+            SoundDefOf.Tick_Low.PlayOneShotOnCamera(null);
+
+            SetCounts();
+        }
+
+        void CancelAction()
+        {
+            this.Close(true);
+            Event.current.Use();
+        }
+
+        float GetUnitCost()
         {
             return UnitDef.CreateUnitFromArrays(ranks, counts).GetUnitCost();
         }
 
-        public int GetUnitSpawnTime()
+        int GetUnitSpawnTime()
         {
             return UnitDef.CreateUnitFromArrays(ranks, counts).GetSpawnTime();
         }
 
-        public void SetCounts()
+        void SetCounts()
         {
             editBuffers = new string[army.rankList.Count];
             counts = new int[army.rankList.Count];
