@@ -95,15 +95,17 @@ namespace RMC
                 pawn.Name = newName;
             }
 
-            if (rank.chronologicalAge > -1)
+            int chronologicalAge = Math.Max(rank.childhood?.chronologicalAge ?? -1, rank.adulthood?.chronologicalAge ?? -1);
+
+            if (chronologicalAge > -1)
             {
                 try
                 {
-                    pawn.ageTracker.AgeChronologicalTicks = rank.chronologicalAge * 3600000;
+                    pawn.ageTracker.AgeChronologicalTicks = chronologicalAge * 3600000L;
                 }
                 catch (Exception ex)
                 {
-                    Log.Error($"RMC: Chronological age (in ticks) for RankDef '{rank.defName}' caused overflow: {rank.chronologicalAge}");
+                    Log.Error($"RMC: Chronological age (in ticks) for pawn with rank '{rank.defName}' caused overflow: {chronologicalAge}");
                 }
             }
 

@@ -17,6 +17,7 @@ namespace RMC
         public bool isNewBackstory = false;
 
         public BodyTypeDef bodyTypeDef = null;
+        public int chronologicalAge = -1;
 
         public WorkTags requiredWorkTags;
         public WorkTags disabledWorkTags;

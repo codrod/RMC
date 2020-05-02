@@ -15,7 +15,6 @@
 		<childhood>RMC_BackstoryDef_ISC_Recruit</childhood>
 		<adulthood>RMC_BackstoryDef_ISC_Spacemarine</adulthood>
 		<destroyInventory>true</destroyInventory>
-    <chronologicalAge>417</chronologicalAge>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">

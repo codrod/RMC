@@ -17,6 +17,7 @@
 	<RMC.BackstoryDef Abstract="True" Name="RMC_BackstoryDef_ISC_Base">
     <isNewBackstory>true</isNewBackstory>
 		<bodyTypeDef>Hulk</bodyTypeDef>
+    <chronologicalAge>5748</chronologicalAge>
 		<disallowedTraits>
 			<li>Brawler</li>
 			<li>Pyromaniac</li>
