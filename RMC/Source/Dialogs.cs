@@ -22,9 +22,8 @@ namespace RMC
         int ticksInADay = 60000;
         float headerRectHeight = 58f;
         float rowHeight = 30f;
-        float rightMargin = 14f;
+        float rightMargin = 16f;
         float rowWidth = 0f;
-        float buttonSpacer = 10f;
 
         public override Vector2 InitialSize
         {
@@ -77,13 +76,26 @@ namespace RMC
             GUI.EndGroup();
 
             y += headerRectHeight / 2f;
-            Rect silverRect = new Rect(0f, y, rowWidth / 2f, rowHeight);
+            Widgets.ThingIcon(new Rect(0f, y, 30f, rowHeight), new Thing() { def = ThingDefOf.Silver }, 1f);
+            Rect silverRect = new Rect(35f, y, rowWidth / 2f, rowHeight);
+            Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(silverRect, negotiator.Map.resourceCounter.Silver.ToString());
 
             Rect costRect = new Rect(window.width / 2f, y, rowWidth / 2f, rowHeight);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
-            Widgets.Label(costRect, "-" + GetUnitCost().ToString() + " : ~" + GetUnitSpawnTime() / ticksInADay + " days");
+            Widgets.Label(costRect, "-" + GetUnitCost());
+
+            y += rowHeight - 10f;
+            Rect timeRect = new Rect(0f, y, rowWidth / 2f, rowHeight);
+            GUI.color = Color.white;
+            Text.Anchor = TextAnchor.MiddleLeft;
+            Widgets.Label(timeRect, "Arrival time");
+
+            Rect spawnTimeRect = new Rect(window.width / 2f, y, rowWidth / 2f, rowHeight);
+            GUI.color = Color.red;
+            Text.Anchor = TextAnchor.MiddleRight;
+            Widgets.Label(spawnTimeRect, "~" + GetUnitSpawnTime() / ticksInADay + " day(s)");
 
             y += rowHeight;
             Text.Anchor = TextAnchor.MiddleLeft;
@@ -91,9 +103,9 @@ namespace RMC
             Widgets.DrawLineHorizontal(0f, y, rowWidth);
 
             Rect mainRect = new Rect(0f, y, rowWidth, window.height - y);
-            FillMainRect(mainRect);
+            y += FillMainRect(mainRect);
 
-            Rect acceptButton = new Rect(window.width / 2f - buttonSize.x / 2f, window.height - y, buttonSize.x, buttonSize.y);
+            Rect acceptButton = new Rect(window.width / 2f - buttonSize.x / 2f, y + 10f, buttonSize.x, buttonSize.y);
             if (Widgets.ButtonText(acceptButton, "AcceptButton".Translate(), true, false, true))
                 AcceptAction();
 
@@ -108,7 +120,7 @@ namespace RMC
             GUI.EndGroup();
         }
 
-        void FillMainRect(Rect mainRect)
+        float FillMainRect(Rect mainRect)
         {
             Text.Font = GameFont.Small;
             float y = 6f;
@@ -130,26 +142,37 @@ namespace RMC
             }
 
             Widgets.EndScrollView();
+
+            return y;
         }
 
         void DrawTradeableRow(Rect row, int index)
         {
             Text.Font = GameFont.Small;
-            if (index % 2 == 1)  Widgets.DrawLightHighlight(row);
+            if (index % 2 == 1) Widgets.DrawLightHighlight(row);
+            if (Mouse.IsOver(row)) Widgets.DrawHighlight(row);
 
             GUI.BeginGroup(row);
 
             Rect rankRect = new Rect(0f, 0f, row.width / 2f, row.height);
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(rankRect, ranks[index].label);
-            if (Mouse.IsOver(rankRect)) Widgets.DrawHighlight(rankRect);
 
-            Rect countRow = new Rect(row.width - 30f, 0f, 30f, row.height);
-            Widgets.TextFieldNumeric<int>(countRow, ref counts[index], ref editBuffers[index], 0.0f, 99.0f);
+            float widgetWidth = 30f;
+            float spacer = 5f;
 
-            GUI.EndGroup();
+            if(Widgets.ButtonText(new Rect(row.width - (widgetWidth * 3 + spacer * 2), 0f, widgetWidth, row.height), "-") && counts[index] > 0)
+                editBuffers[index] = (--counts[index]).ToString();
+
+            Rect countField = new Rect(row.width - (widgetWidth * 2 + spacer), 0f, widgetWidth, row.height);
+            Widgets.TextFieldNumeric<int>(countField, ref counts[index], ref editBuffers[index], 0.0f, 99.0f);
+
+            if (Widgets.ButtonText(new Rect(row.width - widgetWidth, 0f, widgetWidth, row.height), "+") && counts[index] < 99)
+                editBuffers[index] = (++counts[index]).ToString();
 
             GenUI.ResetLabelAlign();
+
+            GUI.EndGroup();
         }
 
         void AcceptAction()
