@@ -24,6 +24,7 @@ namespace RMC
         float rowHeight = 30f;
         float rightMargin = 16f;
         float rowWidth = 0f;
+        float buttonAreaHeight = 100f;
 
         public override Vector2 InitialSize
         {
@@ -81,7 +82,7 @@ namespace RMC
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(silverRect, negotiator.Map.resourceCounter.Silver.ToString());
 
-            Rect costRect = new Rect(window.width / 2f, y, rowWidth / 2f, rowHeight);
+            Rect costRect = new Rect(rowWidth / 2f, y, rowWidth / 2f, rowHeight);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
             Widgets.Label(costRect, "-" + GetUnitCost());
@@ -92,7 +93,7 @@ namespace RMC
             Text.Anchor = TextAnchor.MiddleLeft;
             Widgets.Label(timeRect, "Arrival time");
 
-            Rect spawnTimeRect = new Rect(window.width / 2f, y, rowWidth / 2f, rowHeight);
+            Rect spawnTimeRect = new Rect(rowWidth / 2f, y, rowWidth / 2f, rowHeight);
             GUI.color = Color.red;
             Text.Anchor = TextAnchor.MiddleRight;
             Widgets.Label(spawnTimeRect, "~" + GetUnitSpawnTime() / ticksInADay + " day(s)");
@@ -102,10 +103,12 @@ namespace RMC
             GUI.color = Color.white;
             Widgets.DrawLineHorizontal(0f, y, rowWidth);
 
-            Rect mainRect = new Rect(0f, y, rowWidth, window.height - y);
-            y += FillMainRect(mainRect);
+            y += 5f; //spacer
+            Rect mainRect = new Rect(0f, y, window.width, window.height - (y + buttonAreaHeight));
+            FillMainRect(mainRect);
 
-            Rect acceptButton = new Rect(window.width / 2f - buttonSize.x / 2f, y + 10f, buttonSize.x, buttonSize.y);
+            y += mainRect.height;
+            Rect acceptButton = new Rect(window.width / 2f - buttonSize.x / 2f, y + ((buttonAreaHeight - buttonSize.y) / 2f), buttonSize.x, buttonSize.y);
             if (Widgets.ButtonText(acceptButton, "AcceptButton".Translate(), true, false, true))
                 AcceptAction();
 
@@ -125,7 +128,7 @@ namespace RMC
             Text.Font = GameFont.Small;
             float y = 6f;
             float height = y + army.rankList.Count * rowHeight;
-            Rect viewRect = new Rect(0f, 0f, mainRect.width, height);
+            Rect viewRect = new Rect(0f, 0f, rowWidth - 5f, height);
             Widgets.BeginScrollView(mainRect, ref this.scrollPosition, viewRect, true);
             float minY = this.scrollPosition.y - rowHeight;
             float maxY = this.scrollPosition.y + mainRect.height;
