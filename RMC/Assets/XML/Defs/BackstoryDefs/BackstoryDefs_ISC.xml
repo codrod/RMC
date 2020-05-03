@@ -17,7 +17,7 @@
 	<RMC.BackstoryDef Abstract="True" Name="RMC_BackstoryDef_ISC_Base">
     <isNewBackstory>true</isNewBackstory>
 		<bodyTypeDef>Hulk</bodyTypeDef>
-    <chronologicalAge>5748</chronologicalAge>
+    <chronologicalAge>5319</chronologicalAge>
 		<disallowedTraits>
 			<li>Brawler</li>
 			<li>Pyromaniac</li>
@@ -25,6 +25,8 @@
 			<li>NaturalMood</li>
 			<li>Neurotic</li>
 			<li>Wimp</li>
+      <li>TorturedArtist</li>
+      <li>BleedingHeart</li>
 		</disallowedTraits>
 	</RMC.BackstoryDef>
 	
@@ -35,14 +37,6 @@
 		<baseDesc>Since joining the orbital-deployment shock troop corps [PAWN_nameDef] has fought in countless battles with distinction and honor.\n\nEnemies of the empire fear the spacemarines more than any other imperial force, for good reason.</baseDesc>
 		<title>Spacemarine</title>
 		<titleShort>Marine</titleShort>
-		<bodyTypeDef>Hulk</bodyTypeDef>
-		<disallowedTraits>
-			<li>Brawler</li>
-			<li>Pyromaniac</li>
-			<li>DrugDesire</li>
-			<li>NaturalMood</li>
-			<li>Neurotic</li>
-		</disallowedTraits>
 		<forcedTraits>
 			<li>
 				<traitDef>Nerves</traitDef>
@@ -98,18 +92,27 @@
 	
 	<RMC.BackstoryDef ParentName="RMC_BackstoryDef_ISC_Officer_Base">
 		<defName>RMC_BackstoryDef_ISC_Tech</defName>
-		<label>imperial tech backstory</label>
+		<label>technical officer backstory</label>
 		<identifier>RMC_BackstoryDef_ISC_Tech</identifier>
-		<baseDesc>During [PAWN_possessive] education at the naval academy [PAWN_nameDef] was selected for techops. [PAWN_pronoun] was educated in mathematics, science, technology, and medicine.\n\nThen assigned to the imperial spacemarine corp as a technical officer.</baseDesc>
+		<baseDesc>During [PAWN_possessive] education at the naval academy [PAWN_nameDef] was selected for tech-ops corps. [PAWN_pronoun] was educated in mathematics, science, and technology\n\nThen assigned to the imperial spacemarine corp as a technical officer.</baseDesc>
 		<title>Technical officer</title>
 		<titleShort>Tech</titleShort>
 	</RMC.BackstoryDef>
+
+  <RMC.BackstoryDef ParentName="RMC_BackstoryDef_ISC_Officer_Base">
+    <defName>RMC_BackstoryDef_ISC_Doc</defName>
+    <label>medical officer backstory</label>
+    <identifier>RMC_BackstoryDef_ISC_Doc</identifier>
+    <baseDesc>During [PAWN_possessive] education at the naval academy [PAWN_nameDef] was selected for the medical corps. [PAWN_pronoun] was educated in surgery, bionics, and combat medicine.\n\nThen assigned to the imperial spacemarine corp as a medical officer.</baseDesc>
+    <title>Medical officer</title>
+    <titleShort>Doc</titleShort>
+  </RMC.BackstoryDef>
 	
 	<RMC.BackstoryDef ParentName="RMC_BackstoryDef_ISC_Officer_Base">
 		<defName>RMC_BackstoryDef_ISC_Officer</defName>
 		<label>officer backstory</label>
 		<identifier>RMC_BackstoryDef_ISC_Officer</identifier>
-		<baseDesc>After graduating from the naval academy [PAWN_nameDef] became a commisoned officer in the imperial spacemarine corps.\n\n[PAWN_pronoun] was eventually honored for exceptional service and assigned to the orbital-deployment shock troop division.</baseDesc>
+		<baseDesc>After graduating from the naval academy [PAWN_nameDef] became a commissioned officer in the imperial spacemarine corps.\n\n[PAWN_pronoun] was eventually honored for exceptional service and assigned to the orbital-deployment shock troop division.</baseDesc>
 		<title>Imperial officer</title>
 		<titleShort>Officer</titleShort>
 	</RMC.BackstoryDef>

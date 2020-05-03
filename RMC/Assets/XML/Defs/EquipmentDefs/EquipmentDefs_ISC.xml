@@ -54,9 +54,11 @@
 			</li>
 			<li>
 				<thing>Apparel_ArmorRecon</thing>
+        <color>(0.4, 0.4, 0.4, 1)</color>
 			</li>
 			<li>
 				<thing>Apparel_ArmorHelmetRecon</thing>
+        <color>(0.4, 0.4, 0.4, 1)</color>
 			</li>
 		</equipmentList>
 	</RMC.EquipmentDef>
@@ -75,9 +77,11 @@
 			</li>
 			<li>
 				<thing>Apparel_PowerArmor</thing>
+        <color>(0.4, 0.4, 0.4, 1)</color>
 			</li>
 			<li>
 				<thing>Apparel_PowerArmorHelmet</thing>
+        <color>(0.4, 0.4, 0.4, 1)</color>
 			</li>
 		</equipmentList>
 	</RMC.EquipmentDef>

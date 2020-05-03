@@ -37,8 +37,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Medium</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
 		<weapon>Gun_ChargeRifle</weapon>
-		<cost>2000</cost>
-		<spawnTime>120000</spawnTime>
+    <cost>1500</cost>
+		<spawnTime>60000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Spacemarine_Base">
@@ -49,8 +49,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_High</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>3000</cost>
-		<spawnTime>240000</spawnTime>
+		<cost>2000</cost>
+		<spawnTime>120000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef Abstract="True" Name="RMC_RankDef_ISC_Officer_Base">
@@ -63,14 +63,27 @@
 		<defName>RMC_RankDef_ISC_Tech</defName>
 		<label>Technical Officer</label>
 		<pawnKindDef>RMC_PawnKindDef_ISC_Tech</pawnKindDef>
-		<title>Dr.</title>
+		<title>Tech.</title>
 		<adulthood>RMC_BackstoryDef_ISC_Tech</adulthood>
 		<trainingDef>RMC_TrainingDef_ISC_Tech</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
-		<weapon>Gun_SniperRifle</weapon>
-		<cost>4000</cost>
-		<spawnTime>480000</spawnTime>
+		<weapon>Gun_ChargeRifle</weapon>
+		<cost>3000</cost>
+		<spawnTime>180000</spawnTime>
 	</RMC.RankDef>
+
+  <RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
+    <defName>RMC_RankDef_ISC_Doc</defName>
+    <label>Medical Officer</label>
+    <pawnKindDef>RMC_PawnKindDef_ISC_Doc</pawnKindDef>
+    <title>Dr.</title>
+    <adulthood>RMC_BackstoryDef_ISC_Doc</adulthood>
+    <trainingDef>RMC_TrainingDef_ISC_Medical</trainingDef>
+    <equipmentDef>RMC_EquipmentDef_ISC_LightArmor</equipmentDef>
+    <weapon>Gun_ChargeRifle</weapon>
+    <cost>3000</cost>
+    <spawnTime>180000</spawnTime>
+  </RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
 		<defName>RMC_RankDef_ISC_Lieutenant</defName>
@@ -80,8 +93,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>5000</cost>
-		<spawnTime>900000</spawnTime>
+		<cost>3500</cost>
+		<spawnTime>180000</spawnTime>
 	</RMC.RankDef>
 	
 	<RMC.RankDef ParentName="RMC_RankDef_ISC_Officer_Base">
@@ -92,8 +105,8 @@
 		<trainingDef>RMC_TrainingDef_ISC_Officer</trainingDef>
 		<equipmentDef>RMC_EquipmentDef_ISC_HeavyArmor</equipmentDef>
 		<weapon>Gun_ChargeLance</weapon>
-		<cost>6000</cost>
-		<spawnTime>900000</spawnTime>
+		<cost>4000</cost>
+		<spawnTime>180000</spawnTime>
 	</RMC.RankDef>
 	
 </Defs>

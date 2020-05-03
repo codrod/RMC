@@ -14,7 +14,8 @@
 			<li>RMC_RankDef_ISC_Corporal</li>
 			<li>RMC_RankDef_ISC_Sergeant</li>
 			<li>RMC_RankDef_ISC_Tech</li>
-			<li>RMC_RankDef_ISC_Lieutenant</li>
+      <li>RMC_RankDef_ISC_Doc</li>
+      <li>RMC_RankDef_ISC_Lieutenant</li>
 			<li>RMC_RankDef_ISC_Captain</li>
       <li>RMC_RankDef_RWM_Gunner</li>
       <li>RMC_RankDef_RWM_Grenadier_Destructive</li>

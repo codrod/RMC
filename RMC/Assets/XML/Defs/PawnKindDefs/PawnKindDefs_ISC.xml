@@ -65,6 +65,11 @@
 		<defName>RMC_PawnKindDef_ISC_Tech</defName>
 		<label>technical officer</label>
 	</PawnKindDef>
+
+  <PawnKindDef ParentName="RMC_PawnKindDef_ISC_Officer">
+    <defName>RMC_PawnKindDef_ISC_Doc</defName>
+    <label>medical officer</label>
+  </PawnKindDef>
 	
 	<PawnKindDef ParentName="RMC_PawnKindDef_ISC_Officer">
 		<defName>RMC_PawnKindDef_ISC_Lieutenant</defName>

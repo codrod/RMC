@@ -2,7 +2,30 @@
 
 <Defs>
 
-	<RMC.TrainingDef>
+  <RMC.TrainingDef Abstract="True" Name="RMC_TrainingDef_ISC_Basic">
+    <skillRangeList>
+      <li>
+        <skillDef>Medicine</skillDef>
+        <bonus>5</bonus>
+        <passion>None</passion>
+      </li>
+      <li>
+        <skillDef>Cooking</skillDef>
+        <bonus>5</bonus>
+      </li>
+      <li>
+        <skillDef>Construction</skillDef>
+        <bonus>5</bonus>
+      </li>
+      <li>
+        <skillDef>Mining</skillDef>
+        <bonus>5</bonus>
+      </li>
+    </skillRangeList>
+  </RMC.TrainingDef>
+                    
+
+	<RMC.TrainingDef ParentName="RMC_TrainingDef_ISC_Basic">
 		<defName>RMC_TrainingDef_ISC_Low</defName>
 		<label>low training</label>
 		<skillRangeList>
@@ -18,205 +41,182 @@
 				<max>11</max>
 				<passion>Minor</passion>
 			</li>
-			<li>
-				<skillDef>Medicine</skillDef>
-				<min>3</min>
-				<max>5</max>
-				<passion>None</passion>
-			</li>
-			<li>
-				<skillDef>Cooking</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Construction</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Plants</skillDef>
-				<bonus>3</bonus>
-			</li>
 		</skillRangeList>
 	</RMC.TrainingDef>
 	
-	<RMC.TrainingDef>
+	<RMC.TrainingDef ParentName="RMC_TrainingDef_ISC_Basic">
 		<defName>RMC_TrainingDef_ISC_Medium</defName>
 		<label>medium training</label>
 		<skillRangeList>
 			<li>
 				<skillDef>Shooting</skillDef>
-				<min>9</min>
+				<min>8</min>
 				<max>11</max>
 				<passion>Major</passion>
 			</li>
 			<li>
 				<skillDef>Melee</skillDef>
-				<min>9</min>
+				<min>8</min>
 				<max>11</max>
 				<passion>Minor</passion>
 			</li>
 			<li>
 				<skillDef>Medicine</skillDef>
 				<min>5</min>
-				<max>8</max>
-				<passion>Minor</passion>
+				<max>10</max>
+				<passion>None</passion>
 			</li>
-			<li>
-				<skillDef>Cooking</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Construction</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Plants</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Mining</skillDef>
-				<bonus>2</bonus>
-			</li>
-			<li>
-				<skillDef>Animals</skillDef>
-				<bonus>2</bonus>
-			</li>
-			<li>
-				<skillDef>Social</skillDef>
-				<bonus>2</bonus>
-			</li>
+      <li>
+        <skillDef>Social</skillDef>
+        <bonus>3</bonus>
+      </li>
 		</skillRangeList>
 	</RMC.TrainingDef>
 	
-	<RMC.TrainingDef>
+	<RMC.TrainingDef ParentName="RMC_TrainingDef_ISC_Basic">
 		<defName>RMC_TrainingDef_ISC_High</defName>
 		<label>high training</label>
 		<skillRangeList>
 			<li>
 				<skillDef>Shooting</skillDef>
-				<min>11</min>
-				<max>13</max>
+				<min>10</min>
+				<max>15</max>
 				<passion>Major</passion>
 			</li>
 			<li>
 				<skillDef>Melee</skillDef>
-				<min>11</min>
-				<max>13</max>
+				<min>10</min>
+				<max>15</max>
 				<passion>Minor</passion>
 			</li>
 			<li>
 				<skillDef>Medicine</skillDef>
 				<min>5</min>
-				<max>8</max>
-				<passion>Minor</passion>
-			</li>
-			<li>
-				<skillDef>Cooking</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Construction</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Plants</skillDef>
-				<bonus>3</bonus>
-			</li>
-			<li>
-				<skillDef>Mining</skillDef>
-				<bonus>2</bonus>
-			</li>
-			<li>
-				<skillDef>Animals</skillDef>
-				<bonus>2</bonus>
+				<max>10</max>
+				<passion>None</passion>
 			</li>
 			<li>
 				<skillDef>Social</skillDef>
-				<bonus>2</bonus>
+        <min>5</min>
+        <max>10</max>
+        <passion>Minor</passion>
 			</li>
 		</skillRangeList>
 	</RMC.TrainingDef>
 	
-	<RMC.TrainingDef>
-		<defName>RMC_TrainingDef_ISC_Tech</defName>
-		<label>technical training</label>
+	<RMC.TrainingDef ParentName="RMC_TrainingDef_ISC_Basic">
+		<defName>RMC_TrainingDef_ISC_Medical</defName>
+		<label>medical training</label>
 		<skillRangeList>
-			<li>
-				<skillDef>Shooting</skillDef>
-				<min>9</min>
-				<max>13</max>
-				<passion>Minor</passion>
-			</li>
-			<li>
-				<skillDef>Melee</skillDef>
-				<min>9</min>
-				<max>13</max>
-				<passion>None</passion>
-			</li>
+      <li>
+        <skillDef>Shooting</skillDef>
+        <min>8</min>
+        <max>11</max>
+        <passion>None</passion>
+      </li>
+      <li>
+        <skillDef>Melee</skillDef>
+        <min>8</min>
+        <max>11</max>
+        <passion>None</passion>
+      </li>
 			<li>
 				<skillDef>Medicine</skillDef>
 				<min>10</min>
-				<max>14</max>
+				<max>15</max>
 				<passion>Minor</passion>
 			</li>
 			<li>
 				<skillDef>Intellectual</skillDef>
-				<min>10</min>
-				<max>14</max>
-				<passion>Major</passion>
+				<min>5</min>
+				<max>10</max>
+				<passion>Minor</passion>
 			</li>
 			<li>
 				<skillDef>Social</skillDef>
-				<min>10</min>
-				<max>14</max>
+				<min>5</min>
+				<max>10</max>
 				<passion>None</passion>
 			</li>
 		</skillRangeList>
 	</RMC.TrainingDef>
+
+  <RMC.TrainingDef ParentName="RMC_TrainingDef_ISC_Basic">
+    <defName>RMC_TrainingDef_ISC_Tech</defName>
+    <label>technical training</label>
+    <skillRangeList>
+      <li>
+        <skillDef>Shooting</skillDef>
+        <min>8</min>
+        <max>11</max>
+        <passion>None</passion>
+      </li>
+      <li>
+        <skillDef>Melee</skillDef>
+        <min>8</min>
+        <max>11</max>
+        <passion>None</passion>
+      </li>
+      <li>
+        <skillDef>Intellectual</skillDef>
+        <min>10</min>
+        <max>15</max>
+        <passion>Major</passion>
+      </li>
+      <li>
+        <skillDef>Crafting</skillDef>
+        <min>10</min>
+        <max>15</max>
+        <passion>Major</passion>
+      </li>
+      <li>
+        <skillDef>Construction</skillDef>
+        <min>10</min>
+        <max>15</max>
+        <passion>Minor</passion>
+      </li>
+      <li>
+        <skillDef>Social</skillDef>
+        <bonus>5</bonus>
+      </li>
+    </skillRangeList>
+  </RMC.TrainingDef>
 	
-	<RMC.TrainingDef>
+	<RMC.TrainingDef ParentName="RMC_TrainingDef_ISC_Basic">
 		<defName>RMC_TrainingDef_ISC_Officer</defName>
 		<label>officer training</label>
 		<skillRangeList>
 			<li>
 				<skillDef>Shooting</skillDef>
-				<min>11</min>
-				<max>14</max>
+				<min>15</min>
+				<max>20</max>
 				<passion>Major</passion>
 			</li>
 			<li>
 				<skillDef>Melee</skillDef>
-				<min>11</min>
-				<max>14</max>
+				<min>15</min>
+				<max>20</max>
 				<passion>Minor</passion>
 			</li>
 			<li>
 				<skillDef>Medicine</skillDef>
-				<min>9</min>
-				<max>13</max>
+				<min>5</min>
+				<max>10</max>
 				<passion>None</passion>
 			</li>
 			<li>
 				<skillDef>Intellectual</skillDef>
-				<min>9</min>
-				<max>13</max>
-				<passion>Minor</passion>
-			</li>
-			<li>
-				<skillDef>Social</skillDef>
-				<min>8</min>
-				<max>11</max>
+				<min>5</min>
+				<max>10</max>
 				<passion>None</passion>
 			</li>
 			<li>
-				<skillDef>Construction</skillDef>
-				<bonus>5</bonus>
+				<skillDef>Social</skillDef>
+				<min>10</min>
+				<max>15</max>
+				<passion>Major</passion>
 			</li>
-			<li>
-				<skillDef>Crafting</skillDef>
-				<bonus>7</bonus>
-			</li>
-		</skillRangeList>
+    </skillRangeList>
 	</RMC.TrainingDef>
 	
 </Defs>
