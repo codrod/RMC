@@ -92,8 +92,6 @@
     <Content Include="Assets\XML\Defs\FactionDefs\FactionDefs_ISC.xml" />
     <Content Include="Assets\XML\Defs\FactionDefs\FactionDefs_RWM.xml" />
     <Content Include="Assets\XML\Defs\IncidentDefs\IncidentDefs.xml" />
-    <None Include="Assets\XML\Defs\IncidentDefs\IncidentDefs_ISC.xml.ignore" />
-    <None Include="Assets\XML\Defs\IncidentDefs\IncidentDefs_RWM.xml.ignore" />
     <Content Include="Assets\XML\Defs\JobDefs\JobDefs.xml" />
     <Content Include="Assets\XML\Defs\PawnKindDefs\PawnKindDefs_ISC.xml" />
     <Content Include="Assets\XML\Defs\PawnKindDefs\PawnKindDefs_RWM.xml">

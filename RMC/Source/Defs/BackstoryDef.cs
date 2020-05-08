@@ -7,7 +7,7 @@ using Verse;
 
 namespace RMC
 {
-    //Custom def for specifiy backstories because such a def does not exist in RimWorld Core
+    //Custom def for specify back stories because such a def does not exist in RimWorld Core
     public class BackstoryDef : Def
     {
         public string identifier = null;

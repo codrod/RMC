@@ -129,7 +129,7 @@ namespace RMC
             //Without this Pawns can still do disabled work
             pawn.workSettings.EnableAndInitialize();
 
-            //Removes passion sybmols for disabled skills in the Bio tab
+            //Removes passion symbols for disabled skills in the Bio tab
             pawn.skills.skills.Where(skill => skill.TotallyDisabled).ToList().ForEach(skill => { skill.Level = 0; skill.passion = Passion.None; });
 
             return;

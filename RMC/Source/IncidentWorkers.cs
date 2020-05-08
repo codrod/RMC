@@ -51,7 +51,7 @@ namespace RMC
             }
             catch (InvalidCastException)
             {
-                Log.Error("RMC: Deployment indcident has incorrect parameter type: no unit will be spawned");
+                Log.Error("RMC: Deployment incident has incorrect parameter type no unit will be spawned");
                 return false;
             }
 

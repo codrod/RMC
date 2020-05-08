@@ -12,9 +12,9 @@ using HarmonyLib;
 
 /*
  * Notes:
- * 1) The pawn generator class only takes Factions not FactionDefs. Which casues a problem if you try mix armies since the faction def in the visting armies pawn kind def does not exist. will
+ * 1) The pawn generator class only takes Factions not FactionDefs. Which causes a problem if you try mix armies since the faction def in the visiting armies pawn kind def does not exist. will
  * probably have to something drastic to fix this.
- * 2) Generated backstories may contradict the forced (disallowed) traits/work tags if the backstories are not forced?
+ * 2) Generated back stories may contradict the forced (disallowed) traits/work tags if the back stories are not forced?
  * 3) ISC should not have relatives!
  */
 
