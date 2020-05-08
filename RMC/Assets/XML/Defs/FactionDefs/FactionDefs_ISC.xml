@@ -2,6 +2,7 @@
 <Defs>
 
 	<FactionDef Abstract="True" Name="RMC_FactionDef_ISC_Colony_Base">
+    <settlementTexturePath>World/WorldObjects/DefaultSettlement</settlementTexturePath>
 		<colorSpectrum>
 			<li>(0, 0.737, 0.847)</li>
 		</colorSpectrum>
