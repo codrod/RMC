@@ -1,22 +1,26 @@
 RimWorld Military Colony
 ========================
 
-RimWorld Military Colony is a mod for the story generator game RimWorld. Its primary purpose is to add new ways to recruit colonists that are more similar to RTS games. For example a communications console is used to request reinforcements, they are paid in silver, and take time to "arrive" in the map. Soldiers can have equipment, training, and ranks/backstories. Currently two factions are implemented, Imperial Spacemarine and Mercenary but medieval and tribal factions are planned as well. Also units can be defined and used to maintain a consistent garrison or population for a colony. This mod is designed to be extendable so custom factions can be made by creating your own XML Defs but this is discouraged currently because the mod is still in the early stages of development.
+RimWorld Military Colony (RMC) is a mod for the story generator game RimWorld. Its primary purpose is to add new ways to recruit colonists that are more similar to RTS games. For example a communications console is used to request reinforcements, they are paid in silver, and take time to "arrive" in the map. Soldiers can have equipment, training, and ranks/backstories. RMC is designed to be extendable so custom armies can be created using XML defs.
 
-### Installation instructions
+### Compatiblity
 
-You should be able to just copy the folder "RimWorld Military Colony" to Steam\steamapps\common\RimWorld\Mods without building anything. You can also open the visual studio project RMC and build the mod but you will probably have to change the build output path.
+RMC does not patch or inject any code so it should be compatible with most mods. But if a mod alters the PawnGenerator class it may cause RMC to stop functioning properly.
 
-Once installed you will need to build a Military comms console which is basically the same as a regular comms console. Note that you can create a custom start scenario to provide starting troops and to help build a comms console earlier in the game. Eventually scenarios will be included with the mod.
+### Contributing
 
-### Custom factions
+1. Install Visual Studio 2017+
+2. Clone the master branch
+3. Update the build output path in the RMC project settings. You will probably just have to change the drive letter from D: to C:
+4. Rebuild the solution
+5. Start RimWorld and verify the mod initializes properly
 
-Factions are created using ArmyDefs you can see an example at Defs/ArmyDefs/ArmyDefs.xml. Basically they are used to define ranks, units, and general background information. RankDefs are used to specify equipment, training, and backstories. Note that RankDefs can be either formal like sergeant or role based like sniper or heavy infantry. UnitDefs are at the very least just a group size, but they can be a formal unit like a squad or platoon. Note that they can also be randomized to simulate irregular armies.
+Now you should be completely setup. All of the code can be managed in visual studio and you just have to rebuild the solution for your changes to take effect. When submitting a pull request please document your request as much as possible so I know what the change is for.
 
-### Development plan
+### Custom Armies
 
-  * Add interface to hire soldiers individually
-  * Improve documentation
-  * Focus on debugging/refactoring
-  * Proper packaged release
-  * Add new factions
+First you should create a new FactionDef. Then use an ArmyDef to define an army for that faction. You can see some example ArmyDefs in **/Assets/XML/Defs/ArmyDefs**. The most significant part of an ArmyDef is the rank list which defines the types of soldiers that are in an army.
+
+RankDefs are used to specify equipment, training, and back stories for a solider. But RankDefs act as an extension of PawnKindDefs so you must define a PawnKindDef for every RankDef. RankDefs are composed of other defs such as an EquipmentDef, TrainingDef, and/or BackstoryDef. You can use ISC and RWM defs as references. The ISC defs show how to create an army with standard equipment, training, and consistent back stories. The RWM defs show how to create a more irregular army.
+
+ You can also use custom scenarios to spawn a staring unit. First you need to create a UnitDef and define it as the starting unit for an army in that armies ArmyDef. Then create a custom scenario with the **RMC_IncidentDef_Deploy** IncidentDef. You can see an example of some starting units and scenarios in **/Assets/XML/Defs/UnitDefs** and **/Assets/XML/Scenarios**.
