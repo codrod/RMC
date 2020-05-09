@@ -103,7 +103,7 @@ namespace RMC
                 {
                     pawn.ageTracker.AgeChronologicalTicks = chronologicalAge * 3600000L;
                 }
-                catch (Exception ex)
+                catch (OverflowException)
                 {
                     Log.Error($"RMC: Chronological age (in ticks) for pawn with rank '{rank.defName}' caused overflow: {chronologicalAge}");
                 }

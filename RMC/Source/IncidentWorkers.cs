@@ -16,7 +16,7 @@ namespace RMC
     {
         public UnitDef reinforcements = new UnitDef();
 
-        public void ExposeData()
+        public new void ExposeData()
         {
             base.ExposeData();
             Scribe_Deep.Look(ref reinforcements, "reinforcements");
