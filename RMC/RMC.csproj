@@ -130,13 +130,25 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="CustomAfterClean" AfterTargets="Clean">
-     <!-- Remove bin folder -->
-     <RemoveDir Directories="$(TargetDir)" />
-     <!-- Remove obj folder -->
-     <RemoveDir Directories="$(ProjectDir)$(BaseIntermediateOutputPath)" />  
+    <!-- Remove bin folder -->
+    <RemoveDir Directories="$(TargetDir)" />
+    <!-- Remove obj folder -->
+    <RemoveDir Directories="$(ProjectDir)$(BaseIntermediateOutputPath)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent></PostBuildEvent>
+    <PostBuildEvent>set Version=1.1
+set RimWorldDir=D:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods
+
+xcopy /yi  .\*.dll "RimWorld Military Colony\%25Version%25\Assemblies"
+xcopy /yi  .\*.pdb "RimWorld Military Colony\%25Version%25\Assemblies"
+xcopy /yei "$(ProjectDir)\Assets\XML"  "RimWorld Military Colony\%25Version%25"
+xcopy /yei "$(ProjectDir)\Assets\About"  "RimWorld Military Colony\About"
+
+if "$(ConfigurationName)" == "Debug" (
+del /s /q "%25RimWorldDir%25\RimWorld Military Colony"
+xcopy /yei "RimWorld Military Colony" "%25RimWorldDir%25\RimWorld Military Colony"
+)
+</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>
