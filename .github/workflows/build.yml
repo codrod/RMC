@@ -1,0 +1,23 @@
+name: Build action
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup msbuild
+      uses: microsoft/setup-msbuild@v1.0.03
+    - name: Setup nuget
+      uses: NuGet/setup-nuget@v1.0.2
+    - name: Restore
+      run: nuget restore
+    - name: Build
+      run: msbuild /p:configuration=Release
