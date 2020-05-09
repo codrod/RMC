@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>D:\Program Files %28x86%29\Steam\steamapps\common\RimWorld\Mods\RimWorld Military Colony\1.1\Assemblies\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
@@ -129,23 +129,17 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="CustomAfterClean" AfterTargets="Clean">
+     <!-- Remove bin folder -->
+     <RemoveDir Directories="$(TargetDir)" />
+     <!-- Remove obj folder -->
+     <RemoveDir Directories="$(ProjectDir)$(BaseIntermediateOutputPath)" />  
+  </Target>
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)" == "Debug" (
-xcopy /yei "$(ProjectDir)\Assets\XML"  "$(OutDir).."
-xcopy /yei "$(ProjectDir)\Assets\About"  "$(OutDir)..\..\About"
-xcopy /yei "$(ProjectDir)\Assets\Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"
-)</PostBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>if "$(ConfigurationName)" == "Debug" (
-del /s /q  "$(OutDir)..\.."
-
-del /s /q  "$(OutDir)\Lib"
-xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" "$(ProjectDir)\Lib"
-xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll" "$(ProjectDir)\Lib"
-xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll" "$(ProjectDir)\Lib"
-xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll" "$(ProjectDir)\Lib"
-xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll" "$(ProjectDir)\Lib"
-)</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>
