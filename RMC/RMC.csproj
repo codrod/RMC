@@ -130,18 +130,22 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /yei "$(ProjectDir)\Assets\XML"  "$(OutDir).."
+    <PostBuildEvent>if "$(ConfigurationName)" == "Debug" (
+xcopy /yei "$(ProjectDir)\Assets\XML"  "$(OutDir).."
 xcopy /yei "$(ProjectDir)\Assets\About"  "$(OutDir)..\..\About"
-xcopy /yei "$(ProjectDir)\Assets\Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"</PostBuildEvent>
+xcopy /yei "$(ProjectDir)\Assets\Scenarios"  "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"
+)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>del /s /q  "$(OutDir)..\.."
+    <PreBuildEvent>if "$(ConfigurationName)" == "Debug" (
+del /s /q  "$(OutDir)..\.."
 
 del /s /q  "$(OutDir)\Lib"
 xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll" "$(ProjectDir)\Lib"
 xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll" "$(ProjectDir)\Lib"
 xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll" "$(ProjectDir)\Lib"
 xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll" "$(ProjectDir)\Lib"
-xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll" "$(ProjectDir)\Lib"</PreBuildEvent>
+xcopy /yei "$(OutDir)..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll" "$(ProjectDir)\Lib"
+)</PreBuildEvent>
   </PropertyGroup>
 </Project>
