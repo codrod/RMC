@@ -31,4 +31,4 @@ jobs:
         prerelease: false
         draft: false
         title: "Latest build"
-        files: "RMC\bin\Release\RimWorld Military Colony.zip"
+        files: "RMC/bin/Release/RimWorld Military Colony.zip"
