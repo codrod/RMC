@@ -125,7 +125,9 @@
   <ItemGroup>
     <None Include="Assets\Scenarios\Imperial Spacemarine Corps.rsc" />
     <None Include="Assets\Scenarios\Rimworld Mercenaries.rsc" />
+    <None Include="local-settings.bat.example" />
     <None Include="packages.config" />
+    <None Include="local-settings.bat" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -136,8 +138,7 @@
     <RemoveDir Directories="$(ProjectDir)$(BaseIntermediateOutputPath)" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>set Version=1.1
-set RimWorldDir=D:\Program Files (x86)\Steam\steamapps\common\RimWorld\Mods
+    <PostBuildEvent>call "$(ProjectDir)\local-settings.bat"
 
 xcopy /yi  .\*.dll "RimWorld Military Colony\%25Version%25\Assemblies"
 xcopy /yi  .\*.pdb "RimWorld Military Colony\%25Version%25\Assemblies"
@@ -147,6 +148,11 @@ xcopy /yei "$(ProjectDir)\Assets\About"  "RimWorld Military Colony\About"
 if "$(ConfigurationName)" == "Debug" (
 del /s /q "%25RimWorldDir%25\RimWorld Military Colony"
 xcopy /yei "RimWorld Military Colony" "%25RimWorldDir%25\RimWorld Military Colony"
+xcopy /yei "..\..\Assets\Scenarios" "%25userprofile%25\AppData\LocalLow\Ludeon Studios\RimWorld by Ludeon Studios\Scenarios"
+)
+
+if "$(ConfigurationName)" == "Release" (
+powershell Compress-Archive -Force 'RimWorld Military Colony' 'RimWorld Military Colony.zip'
 )
 </PostBuildEvent>
   </PropertyGroup>
