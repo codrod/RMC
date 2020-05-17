@@ -24,11 +24,8 @@ jobs:
     - name: Build
       run: msbuild /p:configuration=Release
 
-    - uses: "marvinpinto/action-automatic-releases@latest"
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v1
       with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
-        prerelease: false
-        draft: false
-        title: "Latest build"
-        files: "RMC/bin/Release/RimWorld Military Colony.zip"
+        name: Mod
+        path: "RMC/bin/Release/RimWorld Military Colony.zip"
