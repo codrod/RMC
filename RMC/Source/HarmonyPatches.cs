@@ -21,6 +21,9 @@ using HarmonyLib;
  * 
  * 3) ISC should not have relatives! I noticed that royal tribute collector had a guard with a relation to one of the spacemarines
  * Should see if there is a solution that problem but there might not be.
+ * 
+ * 4) You can recruit units faster by making multiple reinforcement requests rather than just one large request. Should probably
+ * prevent that from happening.
  */
 
 namespace RMC
