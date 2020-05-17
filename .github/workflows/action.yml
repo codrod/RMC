@@ -25,7 +25,7 @@ jobs:
     - name: Upload build artifact
       uses: actions/upload-artifact@v1
       with:
-        name: "RimWorld Military Colony"
+        name: build-artifact
         path: "RMC/bin/Release/RimWorld Military Colony.zip"
 
    
@@ -36,7 +36,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v1
         with:
-          name: "RimWorld Military Colony"
+          name: build-artifact
 
       - name: Create release
         uses: "marvinpinto/action-automatic-releases@latest"
@@ -46,4 +46,4 @@ jobs:
           prerelease: false
           draft: false
           title: "Latest build"
-          files: "RimWorld Military Colony.zip"
+          files: "build-artifact/RimWorld Military Colony.zip"
