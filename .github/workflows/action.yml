@@ -1,0 +1,48 @@
+name: Actions
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.0.0
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+
+    - name: NuGet Restore
+      run: nuget restore
+
+    - name: MSBuild
+      run: msbuild /p:configuration=Release
+
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: build-artifact
+        path: "RMC/bin/Release/RimWorld Military Colony.zip"
+
+   
+  release:
+    runs-on: windows-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: build-artifact
+
+      - name: Create release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          draft: false
+          title: "Latest build"
+          files: "build-artifact/RimWorld Military Colony.zip"
