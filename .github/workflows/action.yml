@@ -26,7 +26,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: "RimWorld Military Colony"
-        path: "RMC/bin/Release/RimWorld Military Colony"
+        path: "RMC/bin/Release/RimWorld Military Colony.zip"
 
    
   release:
