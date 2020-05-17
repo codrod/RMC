@@ -139,6 +139,7 @@
   </Target>
   <PropertyGroup>
     <PostBuildEvent>call "$(ProjectDir)\local-settings.bat"
+set Version=1.1
 
 xcopy /yi  .\*.dll "RimWorld Military Colony\%25Version%25\Assemblies"
 xcopy /yi  .\*.pdb "RimWorld Military Colony\%25Version%25\Assemblies"
