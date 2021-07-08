@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <savedscenario>
 	<meta>
-		<gameVersion>1.1.2610 rev1053</gameVersion>
+		<gameVersion>1.2.3005 rev1190</gameVersion>
 		<modIds>
 			<li>brrainz.harmony</li>
 			<li>ludeon.rimworld</li>
