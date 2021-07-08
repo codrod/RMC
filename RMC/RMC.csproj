@@ -124,8 +124,9 @@
   <ItemGroup>
     <None Include="Assets\Scenarios\Imperial Spacemarine Corps.rsc" />
     <None Include="Assets\Scenarios\Rimworld Mercenaries.rsc" />
+    <None Include="local-settings.bat" />
     <None Include="post-build.bat" />
-    <None Include="post-build.bat.example" />
+    <None Include="local-settings.bat.example" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
